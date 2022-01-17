@@ -73,7 +73,8 @@
 	<textarea data-template>
 		## Overview
 
-		* D3 & Graphics 
+		* D3 & Graphics
+		* Events
 		* Chart Types
 		* Example Pie Chart 
 		* Questions & Discussion
@@ -103,7 +104,82 @@
 </section>
 
 <!-- ------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------- -->
 	
+<section data-markdown style="text-align: left;">
+<textarea data-template>
+### Handling Events in D3
+
+D3 also supports built-in events and custom events. 
+You can bind an event listener to **any DOM element** using `d3.selection.on()`
+	
+Syntax:
+```js
+d3.selection.on(type[, listener[, capture]]);
+```
+	
+<aside class='notes'>
+</aside>
+</textarea>
+</section>
+	
+<!-- ------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------- -->
+		
+<section data-markdown style="text-align: left;">
+<textarea data-template>
+### D3 Event Methods/Description
+
+* **selection.on()**  	    Add or remove event listeners to capture event types like click, mouseover, mouseout etc.
+* **selection.dispatch()**  Captures event types like click, mouseover, mouseout. Typenames is the eventname, listener is the event listener
+* **event**  passed as the first argument to all listeners - Event object for access standard event fields such as timestamp or methods like preventDefault
+* **d3.pointer(event)**   Gets the x and y coordinates of the current mouse position in the specified DOM element.
+
+	
+<aside class='notes'>
+</aside>
+</textarea>
+</section>
+	
+<!-- ------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------- -->
+
+		
+<section data-markdown style="text-align: left;">
+<textarea data-template>
+#### D3 Event Example
+	
+```js
+<script>
+    d3.select('body')
+      .append('div')
+      .style('width', '100px').style('height', '20px')
+      .style('background-color', 'green');
+
+    d3.selectAll("div")
+      .on("mouseover", function(event){
+          d3.select(this).style("background-color", "orange");
+
+          // Get current event info // Note: d3.event was removed; (event) passed as the first argument to all listeners
+          console.log(event);
+
+          // Get x and y co-ordinates - Note: d3.mouse was removed in d3v6
+          console.log(d3.pointer(event));
+      })
+      .on("mouseout", function(event){
+          d3.select(this).style("background-color", "steelblue")
+      });
+</script>
+```
+	
+<aside class='notes'>
+</aside>
+</textarea>
+</section>
+	
+<!-- ------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------- -->
+
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
 	### `d3.pie()`
