@@ -125,7 +125,7 @@
 	
 	A good Visualisation display tells a story
 	<br>
-<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/data_storytelling.png" width="200" height="200"></div>
+<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/data_storytelling.png" width="400" height="auto"></div>
 <aside class='notes'>
 </aside>
 	</textarea>
@@ -409,12 +409,12 @@
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	## Augment Display
+	### Augment Display
 	
 	* 2D scatter shows 2 variables
 	* How to show more variables?
 	
-	<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/2d_scatter.png" width="400" height="300"></div>	
+	<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/2d_scatter.png" width="700" height="auto"></div>	
 	
 <aside class='notes'>
 </aside>
@@ -426,11 +426,11 @@
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	## Augment Display
+	### Augment Display
 	
 	* Use 3D Visualisation, but can be hard to interpret
 	
-	<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/3d_viz.png" width="400" height="300"></div>	
+	<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/3d_viz.png" width="500" height="auto"></div>	
 	
 <aside class='notes'>
 </aside>
@@ -456,11 +456,11 @@
 </section>
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	## Augment Display
+	### Augment Display
 	
 
 	Chernoff Face and multivariate visualisation
-	<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/chernoff_faces.png" width="400" height="300"></div>	
+	<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/chernoff_faces.png" width="600" height="auto"></div>	
 
 	
 <aside class='notes'>
@@ -475,10 +475,16 @@
 	<textarea data-template>
 	## Data Clusters
 	
-<div > <img class="plain"  src="./images/lecture2/cluster_tl.gif" width="200" height="200"></div>	
-<div > <img class="plain"  src="./images/lecture2/cluster_bl.gif" width="200" height="200"></div>	
-<div > <img class="plain"  src="./images/lecture2/cluster_tr.png" width="200" height="200"></div>	
-<div > <img class="plain"  src="./images/lecture2/cluster_br.png" width="200" height="200"></div>
+<div style='text-align:center;' > 
+	   <img class="plain"  src="./images/lecture2/cluster_tl.gif" height="300" width="auto">
+       <img class="plain"  src="./images/lecture2/cluster_bl.gif" height="300" width="auto" >
+</div>
+<!--
+<div>
+	   <img class="plain"  src="./images/lecture2/cluster_tr.png" height="200" width="auto" >
+	   <img class="plain"  src="./images/lecture2/cluster_br.png" height="200" width="auto" >
+</div>
+-->
 	
 <aside class='notes'>
 </aside>
@@ -507,7 +513,7 @@
 	## Data Cluster
 	
 	* Distance between vector x and y
-	<div style = "text-align: right;"> <img class="plain"  src="./images/lecture2/distance_bet_vectors.png" width="100" height="100"></div>	
+	<div style = "text-align: right;"> <img class="plain"  src="./images/lecture2/distance_bet_vectors.png" width="300" height="auto"></div>	
 	
 	* Similarity of data vectors 
 	  * defined on the basis of distance
@@ -526,7 +532,7 @@
 	<textarea data-template>
 	## Data Cluster
 	
-	* Being close in terms of some distance measure does not always imply being in the same cluster, the clusters may be determined by similarity defined by features associated with the data vectors
+	Being **close** in terms of some distance measure does not always **imply being in the same cluster**, the clusters may be determined by similarity defined by features associated with the data vectors
 
 	
 <aside class='notes'>
@@ -541,11 +547,10 @@
 	<textarea data-template>
 	## Outliers
 	
-	* An outlier
-	  * a data vector that belongs to a cluster but is relatively dissimilar from the other members of the cluster
-	* Outliers care onsidered to be outside of clusters
+	* An outlier is a **data vector** that **belongs to a cluster** but is relatively dissimilar from the other members of the cluster
+	* Outliers care considered to be outside of clusters
 
-<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/outlier.png" width="200" height="200"></div>	
+<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/outlier.png" width="600" height="auto"></div>	
 	
 <aside class='notes'>
 </aside>
@@ -560,8 +565,11 @@
 	
 	* Clustering uses **Similarity Matrix**
 	  * Ordering of the data vectors
-	  * Covered in details in week 7
-<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/similarity_matrix.png" width="600" height="200"></div>	
+	  * Covered in detail later in the course
+	  
+<div style = "text-align: center;"> 
+	<img class="plain"  src="./images/lecture2/similarity_matrix.png" width="800" height="auto">
+</div>	
 	
 <aside class='notes'>
 </aside>
@@ -594,7 +602,7 @@
 	<textarea data-template>
 	## Model Space
 	
-<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/model_space.png" width="600" height="400"></div>	
+<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/model_space.png" width="700" height="auto"></div>	
 
 	
 <aside class='notes'>
@@ -650,11 +658,11 @@
 </section>
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	## Centroid-based Clustering
+	### Centroid-based Clustering
 	
-	* A data vector is assumed to belong to the data cluster which has its centroid closest to the data vector
+	A **data vector** is assumed to **belong** to the data cluster which has its **centroid closest** to the data vector
 
-<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/centroid.png" width="400" height="200"></div>	
+<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/centroid.png" width="600" height="auto"></div>	
 
 	
 <aside class='notes'>
@@ -699,9 +707,9 @@
 </section>
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	## K-Means Clustering
+	### K-Means Clustering
 	
-<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/kmeans_clustering.jpg" width="600" height="400"></div>	
+<div style = "text-align: center;"> <img class="plain"  src="./images/lecture2/kmeans_clustering.jpg" width="800" height="auto"></div>	
 	
 <aside class='notes'>
 </aside>
