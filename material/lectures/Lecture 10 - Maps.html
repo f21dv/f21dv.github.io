@@ -126,8 +126,7 @@
 	<textarea data-template>
 	### Map of World (Animated/Globe)
 
-<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'>
-<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
 
 <div id="content">
     <canvas width="800" height="400"></canvas>
@@ -136,16 +135,11 @@
 <script>
 let geojson = {}
 
-let context = d3.select('#content canvas')
-  .node()
-  .getContext('2d');
+let context = d3.select('#content canvas').node().getContext('2d');
 
 let projection = d3.geoOrthographic().scale(300);
 
-let geoGenerator = d3.geoPath()
-  .projection(projection)
-  .pointRadius(4)
-  .context(context);
+let geoGenerator = d3.geoPath().projection(projection).pointRadius(4).context(context);
 
 let yaw = 300;
 
@@ -153,8 +147,7 @@ function update() {
   projection.rotate([yaw, -45])
 
   context.clearRect(0, 0, 800, 600);
-
-  context.lineWidth = 0.5;
+  context.lineWidth   = 0.5;
   context.strokeStyle = '#333';
 
   context.beginPath();
@@ -174,8 +167,8 @@ function update() {
 // REQUEST DATA
 d3.json('https://gist.githubusercontent.com/d3indepth/f28e1c3a99ea6d84986f35ac8646fac7/raw/c58cede8dab4673c91a3db702d50f7447b373d98/ne_110m_land.json')
   .then(function(json) {
-  geojson = json;
-  window.setInterval(update, 100);
+    geojson = json;
+    window.setInterval(update, 100);
 })
 </script>
 </code></pre>
@@ -197,8 +190,7 @@ Try out the above example and go through the code.
 	<textarea data-template>
 	### Regions/Country
 
-<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'>
-<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
 
 <style>
 #content .map path          { fill: #aaa;  stroke: #fff;  }
@@ -206,8 +198,7 @@ Try out the above example and go through the code.
 #content .centroid circle   { fill: red                   }
 </style>
 
-<div id="content">
-    <div class="info">Hover over a country</div>
+<div id="content"> <div class="info">Hover over to get details</div>
     <svg width="620px" height="600px">
       <g class="map"></g>
       <g class="bounding-box"><rect></rect></g>
@@ -226,12 +217,10 @@ function handleMouseover(e, d) {
   let centroid  = geoGenerator.centroid(d);
   let measure   = geoGenerator.measure(d);
 
-  d3.select('#content .info')
-    .text(d.properties.name + ' (path.area = ' + pixelArea.toFixed(1) + ' path.measure = ' + measure.toFixed(1) + ')');
+  d3.select('#content .info').text(d.properties.name + ' (path.area = ' + pixelArea.toFixed(1) + ' path.measure = ' + measure.toFixed(1) + ')');
 
   d3.select('#content .bounding-box rect')
-    .attr('x', bounds[0][0])
-    .attr('y', bounds[0][1])
+    .attr('x', bounds[0][0]).attr('y', bounds[0][1])
     .attr('width', bounds[1][0] - bounds[0][0])
     .attr('height', bounds[1][1] - bounds[0][1]);
 
@@ -247,9 +236,7 @@ function update(geojson) {
 
 // REQUEST DATA
 d3.json('https://assets.codepen.io/2814973/africa.json')
-  .then(function(json) {
-    update(json)
-});
+  .then(function(json) {  update(json)  });
 </script>
 </code></pre>
 
@@ -269,8 +256,7 @@ Try out the above example and go through the code.
 	<textarea data-template>
 	### Map example that combines **Leaflet** (MAP) with D3
 
-<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'>
-<script type='text/javascript' src='https://d3js.org/d3.v6.min.js'></script>
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v6.min.js'></script>
 
 <script src = "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <link rel = "stylesheet" href = "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -326,9 +312,10 @@ Try out the above example and go through the code.
 	<textarea data-template>
 	## Summary
 
-	* Map Data 
+	* Map/Location Data
 	* Projection (Latitude and Longitude to screen coordinates (x,y) )
 	* SVG shapes (lines, paths, ...)
+	* Data with real-world locations (maps/animated/interactive)
 <aside class='notes'>
 </aside>
 	</textarea>
