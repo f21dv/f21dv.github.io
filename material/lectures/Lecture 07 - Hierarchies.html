@@ -406,6 +406,64 @@ d3.select('svg g.links')
 
 <!-- ------------------------------------------------------------- -->
 
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	#### Exercise/Question 
+	
+	Given the previous example 'nodes and links' (hierarchy)
+	
+	**How would you add labels?**
+	
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	#### Example 'nodes and links' (labels?)
+	
+	* Extending the 'nodes and links' example, **how would you add labels?**
+	* One such solution is shown below (append the following code)
+	
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'>
+// Labels
+d3.select('svg g')
+  .selectAll('text.label')
+  .data(root.descendants())
+  .join('text')
+  .classed('label', true)
+  .attr('x', function(d) {return d.x;})
+  .attr('y', function(d) {return d.y - 10;})
+  .text(function(d) {
+    return d.data[0];
+  });
+
+// Leaf count labels
+d3.select('svg g')
+  .selectAll('text.count-label')
+  .data(root.descendants())
+  .join('text')
+  .classed('count-label', true)
+  .attr('x', function(d) {return d.x;})
+  .attr('y', function(d) {return d.y + 20;})
+  .text(function(d) {
+      return d.data.name;
+  });
+</code></pre>
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
 	#### Example 'Circles' Hierarchical Pack Layout
