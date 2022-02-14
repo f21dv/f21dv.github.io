@@ -195,6 +195,74 @@ function showPosition(position) {
 	</textarea>
 </section>
 
+<!-- ------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	### `d3.geoPath(..)` and `d3.geoMercator()`
+
+* `d3.geoPath(..)` given a GeoJSON geometry or feature object, it generates an SVG path data for rendering
+* `d3.geoMercator()` is used to draw The spherical Mercator projection
+
+
+[Further details read/documentation](https://github.com/d3/d3-geo)
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	### Drawing GeoMap Data 
+	
+	* In this example below, add some data you create on `geojson.io' (e.g., draw a region) 
+	* Run the code and see the result on screen (visualize the output)
+	
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'>
+<script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
+
+<svg width="620px" height="600px">
+      <g class="map"></g>
+</svg>
+
+<script>
+let projection = d3.geoMercator().scale(400).translate([200, 280]).center([0, 5]);
+
+let geoGenerator = d3.geoPath().projection(projection);
+
+function update(geojson) {
+  let u = d3.select('svg g.map').selectAll('path').data(geojson.features);
+  u.enter().append('path').attr('d', geoGenerator);
+}
+
+// DRAW SOME DATA
+let json = ....
+// add data from https://geojson.io/
+
+update(json);
+
+console.log('ready..');
+</script>
+</code></pre>
+
+Try out the example, as it forms the foundation for later exercises which build on the json/geo data format.
+
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+
+
 
 <!-- ------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------- -->
