@@ -204,12 +204,342 @@ showLinkArrayElements(links,    "root.links()");
 </script>
 </code></pre>
 
+Try out the above example and go through the code.
 <aside class='notes'>
 </aside>
 	</textarea>
 </section>
 
+<!-- ------------------------------------------------------------- -->
 
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	### Visualizing 'd3.hierarchy' Data
+	
+	* Recurse data then add/remove DOM elements 
+	* 'Visualize' hierarchy 
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	#### Example nested 'div' d3.hierarchy()
+	
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'>
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<style>
+div {
+  padding: 5px;
+  border : 1px solid blue; 
+  margin : 5px;
+  display: inline-block;
+}
+</style>
+
+<script>
+var raw = {"name":"A", "size":1, "children":[
+                 {"name":"B", "size":2},
+                 {"name":"C", "size":3, "children":[
+                     {"name":"E", "size":5},
+                     {"name":"F", "size":6}]},
+                 {"name":"D", "size":4}]};
+
+// build hierarchy
+var root = d3.hierarchy(raw); // root ->  parent, children, data, ..
+
+var divs = d3.select('body').selectAll(null)
+  .data(root)
+  .join()
+  .each(function(d) 
+  {
+    if ( d.parent == null ) d.el = d3.select('body').append('div');
+    else                    d.el = d.parent.el.append('div');
+
+    console.log( 'depth:', d.depth, ' name:', d.data.name );
+
+    d.el.text( a => d.data.name );
+  })
+console.log('done..');
+</script>
+</code></pre>
+
+<img src='./images/lecture07/divhierarchy.png' style='border:0;position:absolute;right:0px;top:0px;'>
+
+Run the above example and go through the code.
+Try adding color to show depth.
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	#### Data visualizations (same hierarchical data)
+	
+	* Look at some different d3 hierarchy visualization (using **same data**)
+	* **Try them out** outside of the lecture (type them into an editor and run them)
+	* Add additional **features**, such as (but not limited to): 
+	  * Different color for the depth 
+	  * Other data sets 
+	  * Mix hierarchical visualization types 
+	  * Graphics, colors, patterns, ....
+	  * Interactive aspects (elements display mouse over data, click on, ...)
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+	
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	#### Hierarchical **Data**
+	
+Given the following data, lets look at some ways of visualizing the relationships (hierarchy).
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'>
+var data = {
+  "name": "A1",
+  "children": [
+    {
+      "name": "B1",
+      "children": [
+        {
+          "name": "C1",
+          "value": 100
+        },
+        {
+          "name": "C2",
+          "value": 300
+        },
+        {
+          "name": "C3",
+          "value": 200
+        }
+      ]
+    },
+    {
+      "name": "B2",
+      "value": 200
+    }
+  ]
+}
+</script>
+</code></pre>
+Different ways of visualizing the same data (same data is used in the following examples). 
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	#### Example 'nodes and links' (treeLayout)
+	
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-selection@3"></script>
+
+<style>
+.node {
+  fill: steelblue; stroke: none;
+}
+.link {
+  fill: none;      stroke: #ccc;  stroke-width: 1px;
+}
+</style>
+
+<svg viewBox="0 -20 400 400">
+    <g transform="translate(5, 5)">
+      <g class="links"></g>
+	  <g class="nodes"></g>
+    </g>
+</svg>
+
+<script>
+const svg = d3.select('svg');
+// 'var data' details shown in earlier slides
+
+var treeLayout = d3.tree().size([400, 200])
+
+var root = d3.hierarchy(data)
+
+treeLayout(root)
+
+// Nodes
+d3.select('svg g.nodes')
+  .selectAll('circle.node')
+  .data(root.descendants())
+  .join('circle')
+  .classed('node', true)
+  .attr('cx', function(d) {return d.x;})
+  .attr('cy', function(d) {return d.y;})
+  .attr('r', 4);
+
+// Links
+d3.select('svg g.links')
+  .selectAll('line.link')
+  .data(root.links())
+  .join('line')
+  .classed('link', true)
+  .attr('x1', function(d) {return d.source.x;})
+  .attr('y1', function(d) {return d.source.y;})
+  .attr('x2', function(d) {return d.target.x;})
+  .attr('y2', function(d) {return d.target.y;});
+</script>
+</code></pre>
+
+<img src='./images/lecture07/linkshierarchy.png' width='30%' style='border:0;position:absolute;right:-50px;top:0px;'>
+
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	#### Example 'Circles' Hierarchical Pack Layout
+	
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-selection@3"></script>
+
+<style>
+circle {
+  fill: indianred;
+  opacity: 0.3;
+  stroke: white;
+}
+text {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  fill: white;
+  font-size: 10px;
+  text-anchor: middle;
+}
+</style>
+
+<svg viewBox="0 -20 400 400">
+<g></g>
+</svg>
+
+<script>
+const svg = d3.select('svg');
+// 'var data' - given earlier slides 
+
+var packLayout = d3.pack().size([300, 300]);
+
+var rootNode = d3.hierarchy(data)
+
+rootNode.sum(function(d) {   return d.value;    });
+
+packLayout(rootNode);
+
+var nodes = d3.select('svg g')
+  .selectAll('g')
+  .data(rootNode.descendants())
+  .join('g')
+  .attr('transform', function(d) {return 'translate(' + [d.x, d.y] + ')'})
+
+nodes
+  .append('circle')
+  .attr('r', function(d) { return d.r; })
+
+nodes
+  .append('text')
+  .attr('dy', 4)
+  .text(function(d) {
+    return d.children === undefined ? d.data.name : '';
+  })
+</script>
+</code></pre>
+
+<img src='./images/lecture07/circlepackhierarchy.png' width='30%' style='border:0;position:absolute;right:-80px;top:70px;'>
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	#### Example 'Box' Hierarchy 
+	
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-selection@3"></script>
+
+<style>
+rect {
+  fill: cadetblue;  opacity: 0.3;   stroke: white;
+}
+text {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  fill: white;  font-size: 10px;
+}
+</style>
+
+<svg viewBox="0 -20 400 400"><g></g></svg>
+<script>
+const svg = d3.select('svg');
+// 'var data' shown/given earlier slides
+
+var treemapLayout = d3.treemap()
+  .size([400, 200])
+  .paddingOuter(16);
+
+var rootNode = d3.hierarchy(data)
+
+rootNode.sum(function(d) {  return d.value;   });
+
+treemapLayout(rootNode);
+
+var nodes = d3.select('svg g')
+  .selectAll('g')
+  .data(rootNode.descendants())
+  .join('g')
+  .attr('transform', function(d) {return 'translate(' + [d.x0, d.y0] + ')'})
+
+nodes
+  .append('rect')
+  .attr('width', function(d) { return d.x1 - d.x0; })
+  .attr('height', function(d) { return d.y1 - d.y0; })
+
+nodes
+  .append('text')
+  .attr('dx', 4)
+  .attr('dy', 14)
+  .text(function(d) {
+    return d.data.name;
+  })
+</script>
+</code></pre>
+
+<img src='./images/lecture07/boxpackhierarchy.png' width='50%' style='border:0;position:absolute;right:-80px;top:70px;'>
+
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
 
 <!-- ------------------------------------------------------------- -->
 
@@ -218,8 +548,10 @@ showLinkArrayElements(links,    "root.links()");
 	<textarea data-template>
 	## Summary
 
+	* Data is **not** always **linear**
 	* Representing complex hierarchical datasets
-	* Connecting data (parent-child configuration)
+	* 'd3.hierarchy(..)' method
+	* Connecting data (**parent-child** configuration)
 	
 <aside class='notes'>
 </aside>
