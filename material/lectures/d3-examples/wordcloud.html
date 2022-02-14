@@ -1,9 +1,15 @@
 
 <!DOCTYPE html>
 
-<script type='text/javascript' src='https://d3js.org/d3.v6.min.js'></script>
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
 
 <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+
+<style>
+body {
+  text-align:center;
+}
+</style>
 
 <div id="my_dataviz"></div>
 
@@ -17,7 +23,7 @@ var myWords = [{word: "Running", size: "10"},
                {word: "Snowboarding", size: "60"} ]
 
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 10, bottom: 10, left: 10},
+var margin = {top: 0, right: 0, bottom: 0, left: 0},
     width = 450 - margin.left - margin.right,
     height = 450 - margin.top - margin.bottom;
 

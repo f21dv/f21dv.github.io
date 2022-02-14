@@ -73,6 +73,9 @@
 		## Overview
 
 		* What is Topic Modelling?
+		* Topic Model Methods 
+		* Visualization Topic Model Data 
+		* Examples & Discussion
 		
 <aside class='notes'>
 </aside>
@@ -95,12 +98,127 @@
 	</textarea>
 </section>
 
+
 <!-- ------------------------------------------------------------- -->
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-		## Let's take a look at an interactive example ...
+		### Visual Overview **Topic Modelling**
+
+		Raw data (text) is used to generate topic groups
 		
+		<br>
+		<img src='./images/lecture08/topicmodelingidea.png' width='80%' style='border:0;display:block; margin-left:auto;margin-right:auto;'>
+		
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+		### Text to Topics
+
+		Algorithm analyses text and creates 'topic' groups
+		
+		<br>
+		<img src='./images/lecture08/text2topics.png' width='80%' style='border:0;display:block; margin-left:auto;margin-right:auto;'>
+		
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+		### Uncomplicated Approach (Word Occurrences)
+
+		* Basic example may include a word count algorithm (tracks occurrence of words or similar words)
+		* Limited and can only show basic information (i.e., does not show accurate representation of the topic discussed in the text)
+		
+		
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-background-iframe='./d3-examples/wordcloud.html' data-background-interactive>
+
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+		### Word Clouds
+
+		* The advantage of **word clouds** is that they are **attractive and easy to create**
+		* The disadvantage is that they typically fail to give you the **actionable insights** you need to improve and display depth
+		
+		
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+		### LDA (**L**atent **D**irichlet **A**llocation)
+		
+		* LDA is a popular topic modelling algorithm
+		* Note there are a range of algorithms on the subject but we **focus on LDA**
+		* Further reading, see other algorithms, such as:
+		  * Explicit semantic analysis
+		  * Latent semantic analysis
+		  * Hierarchical Dirichlet process
+		  * Non-negative matrix factorization
+		  * Statistical classification
+		  * Unsupervised learning, ...
+		
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+		### LDA (Latent Dirichlet allocation)
+		
+		* The advantages of LDA is a probabilistic model with **interpretable topics**
+
+		* LDA takes a **corpus of text as input**, assume that text is a mixture of a small number of topics, and that **each word is attributable to one of the topics** - and that each word is attributable to one of the topics
+		
+		* Details on the LDA equations/mathematics
+		  * see http://en.wikipedia.org/wiki/LatentDirichletallocation
+		
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+		### Let's take a look at a some examples ...
+		
+		* Raw Twitter data (random posts)
+		* Books/articles 
+		* Papers reports (e.g., REF2014 data)
 <aside class='notes'>
 </aside>
 	</textarea>
@@ -118,20 +236,22 @@
 
 </section>
 
-
-
 <!-- ------------------------------------------------------------- -->
+
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-		
-		<span style='font-size:100pt;color:red;'>UNDER CONSTRUCTION</span>
-		
+	## LDA (Careful)
+
+	* **Disadvantages** are that it is hard to know when LDA is working 
+	* Topics are soft-clusters so there is no objective metric to say *this is the best choice* of hyperparameters
+	* Metrics like perplexity (how well the model explains the data) are okay to test if the learning is working, but very poor indicators of the overall quality of the model
+	* For example, you could have a model with very low perplexity, but whose topics are not very informative
+	
 <aside class='notes'>
 </aside>
 	</textarea>
 </section>
-
 
 
 <!-- ------------------------------------------------------------- -->
@@ -141,7 +261,10 @@
 	<textarea data-template>
 	## Summary
 
-	* ...
+	* Data is not always in the form that you want 
+	* Extracting data/information from the *raw* data
+	* Data analytics (models/equations to extract information)
+	
 <aside class='notes'>
 </aside>
 	</textarea>
@@ -163,6 +286,27 @@
 </section>
 
 <!-- ------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	## Sources/data/examples
+
+	* Twitter Data
+	  * https://wellecks.wordpress.com/tag/topic-modeling/
+	* JS Text LDA
+	  * https://awaisathar.github.io/lda.js/ 
+	  
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+
+
+
+
 
 
 </div>
