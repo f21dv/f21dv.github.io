@@ -365,12 +365,9 @@ Different ways of visualizing the same data (same data is used in the following 
 </style>
 
 <svg viewBox="0 -20 400 400">
-    <g transform="translate(5, 5)">
       <g class="links"></g>
 	  <g class="nodes"></g>
-    </g>
 </svg>
-
 <script>
 const svg = d3.select('svg');
 // 'var data' details shown in earlier slides
@@ -423,20 +420,15 @@ d3.select('svg g.links')
 
 <style>
 circle {
-  fill: indianred;
-  opacity: 0.3;
-  stroke: white;
+  fill: indianred;	opacity: 0.3;	stroke: white;
 }
 text {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
-  fill: white;
-  font-size: 10px;
-  text-anchor: middle;
+  fill: white;	font-size: 10px;	text-anchor: middle;
 }
 </style>
 
-<svg viewBox="0 -20 400 400">
-<g></g>
+<svg viewBox="0 -20 400 400"><g></g>
 </svg>
 
 <script>
@@ -520,7 +512,7 @@ var nodes = d3.select('svg g')
 
 nodes
   .append('rect')
-  .attr('width', function(d) { return d.x1 - d.x0; })
+  .attr('width',  function(d) { return d.x1 - d.x0; })
   .attr('height', function(d) { return d.y1 - d.y0; })
 
 nodes
