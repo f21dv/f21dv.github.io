@@ -356,21 +356,16 @@ Different ways of visualizing the same data (same data is used in the following 
 <script src="https://cdn.jsdelivr.net/npm/d3-selection@3"></script>
 
 <style>
-.node {
-  fill: steelblue; stroke: none;
-}
-.link {
-  fill: none;      stroke: #ccc;  stroke-width: 1px;
-}
+.node {  fill: steelblue; stroke: none;                     }
+.link {  fill: none;      stroke: #ccc;  stroke-width: 1px; }
 </style>
 
 <svg viewBox="0 -20 400 400">
-      <g class="links"></g>
-	  <g class="nodes"></g>
+    <g class="links"></g>
+    <g class="nodes"></g>
 </svg>
 <script>
-const svg = d3.select('svg');
-// 'var data' details shown in earlier slides
+const svg = d3.select('svg');  // Note: 'var data' details shown in earlier slides
 
 var treeLayout = d3.tree().size([400, 200])
 
@@ -419,21 +414,16 @@ d3.select('svg g.links')
 <script src="https://cdn.jsdelivr.net/npm/d3-selection@3"></script>
 
 <style>
-circle {
-  fill: indianred;	opacity: 0.3;	stroke: white;
-}
-text {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  fill: white;	font-size: 10px;	text-anchor: middle;
-}
+circle { fill: indianred;  opacity: 0.3;   stroke: white;         }
+text   { font-family: "Helvetica Neue", Helvetica, sans-serif;
+         fill: white; font-size: 10px;  text-anchor: middle;      }
 </style>
 
 <svg viewBox="0 -20 400 400"><g></g>
 </svg>
 
 <script>
-const svg = d3.select('svg');
-// 'var data' - given earlier slides 
+const svg = d3.select('svg');  // Note 'var data' - given earlier slides 
 
 var packLayout = d3.pack().size([300, 300]);
 
@@ -480,19 +470,14 @@ nodes
 <script src="https://cdn.jsdelivr.net/npm/d3-selection@3"></script>
 
 <style>
-rect {
-  fill: cadetblue;  opacity: 0.3;   stroke: white;
-}
-text {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  fill: white;  font-size: 10px;
-}
+rect { fill: cadetblue;  opacity: 0.3;   stroke: white;       }
+text { font-family: "Helvetica Neue", Helvetica, sans-serif;
+       fill: white;  font-size: 10px;                         }
 </style>
 
 <svg viewBox="0 -20 400 400"><g></g></svg>
 <script>
-const svg = d3.select('svg');
-// 'var data' shown/given earlier slides
+const svg = d3.select('svg');   // Note: 'var data' shown/given earlier slides
 
 var treemapLayout = d3.treemap()
   .size([400, 200])
