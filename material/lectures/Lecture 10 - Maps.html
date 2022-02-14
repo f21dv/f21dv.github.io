@@ -103,7 +103,7 @@
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	### Example Maps in D3
+	### Example Maps in D3/Data
 
 * Render UK using D3 (json model)
   [Link](https://bost.ocks.org/mike/map/)
@@ -111,15 +111,87 @@
 * 3D Map World (GeoJSON in Three.js)
   [Link](https://bl.ocks.org/mbostock/2b85250396c17a79155302f91ec21224)
   
+* Online GeoJSON Data View/Editor
+  [Link](https://geojson.io)
+  
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	### World Coordinates 
+
+* Latitude and Longitude are the units that represent the coordinates at geographic coordinate system
+* Latitude and Longitude of Heriot-Watt (-45.842701, 169.270996)
+  Online Lat/Long viewer [Link](https://www.latlong.net/)
+* Mobile phones/tablet browsers have access to 'GPS' through 'Geolocation API'
+  * e.g., `navigator.geolocation`
+  ```js
+  let gps = navigator.geolocation;
+  console.log( gps );
+  ```
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	### Web GPS Position Example
+
+Example of getting and displaying your Lat/Long GPS position (if you have geolocation support)
+	
+```html
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition( showPosition );
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+```
 <aside class='notes'>
 </aside>
 	</textarea>
 </section>
 
 
+			   
+<!-- ------------------------------------------------------------- -->
+
+<section style="text-align: left; vertical-align:top; " data-background-iframe='https://www.latlong.net/' data-background-interactive>
+
+</section>
+
 
 <!-- ------------------------------------------------------------- -->
 
+<section style="text-align: left; vertical-align:top; " data-background-iframe='https://geojson.io' data-background-interactive>
+
+</section>
+
+
+
+<!-- ------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------- -->
 
 <section data-markdown style="text-align: left;">
