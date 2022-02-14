@@ -107,11 +107,10 @@ objects!
 	<textarea data-template>
 		## Array Filtering 
 
-* Difference between js array.filter() and
-d3.filter()
-  * Javascript creates elements for filtered data only
-  * D3 creates elements for all data from array and set elements empty for data not selected
-* Main difference is visible when inspecting elements in developer mode for Browser
+  * Difference between js `array.filter()` and `d3.filter()`
+    * JavaScript creates elements for filtered data only
+    * D3 creates elements for all data from array and set elements empty for data not selected
+  * Main difference is visible when inspecting elements in developer mode for Browser
 		
 <aside class='notes'>
 </aside>
@@ -123,7 +122,12 @@ d3.filter()
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-		## The `d3.nest()` method
+		## The `d3.group`
+		
+		* `d3.nest()` changed to `d3.group` latest versions `d3.js`
+		
+		* As its name suggests, `d3.group` groups values by key
+		* Returns a map from key to the corresponding array of values from the input
 		
 <aside class='notes'>
 </aside>
@@ -135,17 +139,16 @@ d3.filter()
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-		## The `d3.nest()` method
+		## The `d3.group` method
 		
-* Nesting allows elements in an array to be
-grouped into a hierarchical tree structure
+* Allows elements in an array to be grouped into a hierarchical tree structure
 * Similar to group by in SQL
   * With multiple level of grouping
   * Output is a tree instead of table/view
 * Groups data using keys and values
 * Levels in tree are specified by key functions
 
-[`d3.nest` Examples to Try](https://bl.ocks.org/phoebebright/raw/3176159/)
+[`d3.nest` Examples to Try](https://observablehq.com/@d3/d3-group)
 
 <aside class='notes'>
 </aside>
@@ -154,6 +157,41 @@ grouped into a hierarchical tree structure
 
 <!-- ------------------------------------------------------------- -->
 
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+		## Example of `d3.group` 
+		
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;'>
+<script src="https://d3js.org/d3.v7.min.js"></script>  
+<script>
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+
+<script>
+var data = [
+  {name: "ABC", amount: "34.0",   date: "11/12/2015"},
+  {name: "DEF", amount: "120.11", date: "11/12/2015"},
+  {name: "MNO", amount: "12.01",  date: "01/04/2016"},
+  {name: "XYZ", amount: "34.05",  date: "01/04/2016"}
+];
+  
+var groupedData = d3.group(data, d => { return d.name; } )
+  
+console.log( groupedData );
+console.log( groupedData.get('ABC') );
+</script>
+</code></pre>
+
+
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+
+<!-- ------------------------------------------------------------- -->
+
+<!-- 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
 		## Example of `d3.nest()` 
@@ -189,9 +227,11 @@ Data is first grouped by manufacturing year and then by the model number.
 	</textarea>
 </section>
 
+-->
 
 <!-- ------------------------------------------------------------- -->
 
+<!--
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
 		## `D3.nest.rollup()`
@@ -215,8 +255,11 @@ d3.nest()
 	</textarea>
 </section>
 
+-->
+
 <!-- ------------------------------------------------------------- -->
 
+<!--
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
 		## `D3.nest.rollup with .filter`
@@ -238,15 +281,17 @@ d3.nest()
 	</textarea>
 </section>
 
+-->
+
 <!-- ------------------------------------------------------------- -->
 
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	#### Applications of `d3.nest()` 
+	#### Applications of `d3.group` 
 	
-	* `d3.nest()` for hierarchies
-	* `d3.nest` with d3.tree layouts
+	* `d3.group` for hierarchies
+	* `d3.group` with `d3.tree` layouts
 
 
 <aside class='notes'>
@@ -264,7 +309,8 @@ d3.nest()
 	## Summary
 
 	* Manipulating and Filtering Data 
-	* `d3.nests`
+	* `d3.groups`
+	  * Older versions `d3.nests`
 	
 <aside class='notes'>
 </aside>
