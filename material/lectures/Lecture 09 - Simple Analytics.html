@@ -123,7 +123,7 @@ objects!
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-		## The `d3.group`
+		### The `d3.group`
 		
 		* `d3.nest()` changed to `d3.group` latest versions `d3.js`
 		
@@ -140,16 +140,16 @@ objects!
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-		## The `d3.group` method
+		### The `d3.group` method
 		
-* Allows elements in an array to be grouped into a hierarchical tree structure
+* Allows elements in an array to be **grouped** into a hierarchical tree structure
 * Similar to group by in SQL
   * With multiple level of grouping
   * Output is a tree instead of table/view
-* Groups data using keys and values
+* Groups data using **keys and values**
 * Levels in tree are specified by key functions
 
-[`d3.nest` Examples to Try](https://observablehq.com/@d3/d3-group)
+[`d3.group` Examples to Try](https://observablehq.com/@d3/d3-group)
 
 <aside class='notes'>
 </aside>
@@ -180,6 +180,8 @@ var groupedData = d3.group(data, d => { return d.name; } )
 console.log( groupedData );
 console.log( groupedData.get('ABC') );
 </script>
+
+Try the example code - check the output (try other data).
 </code></pre>
 
 
