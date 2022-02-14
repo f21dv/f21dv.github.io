@@ -164,8 +164,6 @@ objects!
 		
 <pre><code class="stretch" style='line-height:1.0;font-size:70%;'>
 <script src="https://d3js.org/d3.v7.min.js"></script>  
-<script>
-<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
 
 <script>
 var data = [
@@ -183,7 +181,6 @@ console.log( groupedData.get('ABC') );
 
 Try the example code - check the output (try other data).
 </code></pre>
-
 
 
 <aside class='notes'>
@@ -291,10 +288,50 @@ d3.nest()
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
+		## `D3.rollup`
+		
+Example 
+		
+```js
+<script src="https://d3js.org/d3.v7.min.js"></script>  
+
+<script>
+var data = [
+  {name: "ABC", amount: "34.0",   date: "11/12/2015"},
+  {name: "DEF", amount: "120.11", date: "11/12/2015"},
+  {name: "MNO", amount: "12.01",  date: "01/04/2016"},
+  {name: "XYZ", amount: "34.05",  date: "01/04/2016"}
+];
+  
+var rollup = d3.rollup(
+     data, 
+	 v => d3.sum(v, d => d.amount ),
+	 d => d.name
+);
+  
+console.log( rollup );
+console.log( rollup.get('ABC') );
+</script>
+```
+
+Try the example code - check the output (try other data).
+
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
 	#### Applications of `d3.group` 
 	
-	* `d3.group` for hierarchies
+	* `d3.group` for managing data in hierarchies
 	* `d3.group` with `d3.tree` layouts
+	* `d3.rollup` group data by categorical properties
 
 
 <aside class='notes'>
