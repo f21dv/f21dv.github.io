@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Notes - Data Visualization and Analytics</title>
+  <link rel="stylesheet" href="./md2html/theme.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.7.2/showdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.7.2/showdown-table.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
+
+</head>
+<body>
+
+
+  <textarea id="content">
+
+# Notes - Data Visualization and Analytics
+
+Supplementary notes to complement the lecture material for Data Visualization and Analytics (F20DV/F21DV).
+
+# D3 Hierarchies
+
+A `d3.hierarchy` is a nested data structure representing a tree: each node has one parent node (node.parent), except for the root; likewise, each node has one or more child nodes (node.children), except for the leaves. In addition, each node can have associated data (node.data) to store whatever additional fields you like.
+
+A `d3.hierarchy` is **purely an abstract data structure**. That is: it's for working with hierarchical data. To visualize a hierarchy, you’ll want one of d3-hierarchy's layouts, such as the tidy tree, treemap or sunburst.
+
+If your data is already in a hierarchical format, such as nested JSON, you can pass it directly to `d3.hierarchy`.
+
+Example of hierarchical data: 
+
+```js
+{
+  name: "root",
+  children: [
+    {name: "child1"},
+    {
+      name: "child2",
+      children: [
+        {name: "grandchild1"},
+        {name: "grandchild2"},
+        {name: "grandchild3"}
+      ]
+    }
+  ]
+}
+```
+
+
+
+
+</textarea>
+  
+
+
+  
+<script>
+var text = document.getElementById('content');
+
+converter = new showdown.Converter({tables: 'true', disableForced4SpacesIndentedSublists: 'true', simpleLineBreaks: 'true'});
+
+var html = converter.makeHtml(text.value)
+text.parentNode.removeChild( text );
+
+var div = document.createElement('div');
+div.id = "content";
+document.body.appendChild( div );
+div.innerHTML = html;
+
+hljs.initHighlightingOnLoad();
+</script>
+<!--
+  <script src="https://yihui.name/js/math-code.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+  -->
+  
+<div id="myhome" style="z-index: auto; display: block; position: fixed; bottom: 5px; left: 5px;">
+    <a href="https://f21dv.github.io" data-show-count="false"><img src="../lectures/images/webhome.png" width="8%"></a>
+</div>
+
+
+
+
+</body>
+</html>
