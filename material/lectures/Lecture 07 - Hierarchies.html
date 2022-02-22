@@ -8,7 +8,7 @@
 
 	<link rel="shortcut icon" type="image/x-icon" href="./../../favicon.ico" />
 	<meta name="description" content="Creating beautiful interactive and engaging Data Visualization and Analytics">
-	<meta name="author" content="Ben Kenwright">
+	<meta name="author" content="Ben Kenwright & Ryad Soobhany">
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -53,7 +53,7 @@
 	<h2>Hierarchies</h2>
 	<h4>F20DV/F21DV Data Visualization and Analytics</h4>
 	<p>
-		<small>2020-2021</small>
+		<small>2021-2022</small>
 	</p>
 	
 <aside class='notes'>
@@ -91,6 +91,7 @@
 	<textarea data-template>
 		## 	Hierarchical Clustering
 * Hierarchical clustering is an algorithm that groups similar objects into groups called clusters
+* Unsupervised clustering
 * Two types:
   * Agglomerative 
   * Divisive
@@ -100,7 +101,7 @@
 * Agglomerative Clustering: Also known as bottom-up approach
 * Divisive Clustering: Also known as top-down approach
 
-Link Details on [d3-hiearchy](https://github.com/d3/d3-hierarchy)
+Link Details on [d3-hierarchy](https://github.com/d3/d3-hierarchy)
 
 <aside class='notes'>
 </aside>
@@ -218,7 +219,7 @@ function showLinkArrayElements(data, title) {
     .html('<span>' + title + '</span>: ' + data.map(function(d) {return d.source.data.name + ' -> ' + d.target.data.name;}).join(', '))
 }
 
-var root = d3.hierarchy(data) // *d3.hiearchy function which gets/organised data*
+var root = d3.hierarchy(data) // *d3.hierarchy function which gets/organised data*
 
 var ancestors   = root.children[0].children[1].ancestors();
 var descendants = root.descendants();
