@@ -90,9 +90,9 @@
 	<textarea data-template>
 		### Array Filtering 
 
-* `Array.filter(callback)` creates a new array
+* `Array.filter(callback)` creates a **new array**
 * The elements in the array are those where callback evaluates to true
-* callback is normally a reference to a function that takes the element under consideration as it's first argument and returns either true or false
+* Callback is normally a reference to a function that takes the element under consideration as it's first argument and returns either true or false
 * Note this effects a shallow copy of filtered
 objects!
   * if the original array is an array of objects, then the `new` array is a filtered set of references to the original’s objects.
@@ -125,9 +125,9 @@ objects!
 	<textarea data-template>
 		### The `d3.group`
 		
-		* `d3.nest()` changed to `d3.group` latest versions `d3.js`
+		* `d3.nest()` changed to `d3.group()` latest versions `d3.js`
 		
-		* As its name suggests, `d3.group` groups values by key
+		* As its name suggests, `d3.group` groups values by **key**
 		* Returns a map from key to the corresponding array of values from the input
 		
 <aside class='notes'>
@@ -140,7 +140,7 @@ objects!
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-		### The `d3.group` method
+		### The `d3.group()` method
 		
 * Allows elements in an array to be **grouped** into a hierarchical tree structure
 * Similar to group by in SQL
@@ -196,7 +196,7 @@ Try the example code - check the output (try other data).
 		## Example of `d3.nest()` 
 		
 <pre><code class="stretch" style='line-height:1.0;font-size:70%;'>
-<script src="https://d3js.org/d3.v6.min.js"></script>  
+<script src="https://d3js.org/d3.v7.min.js"></script>  
 <script src="https://d3js.org/d3-collection.v1.min.js"></script>
 <script>
 	var cars = [
