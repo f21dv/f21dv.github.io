@@ -84,6 +84,46 @@
 	</textarea>
 </section>
 
+	
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+		### Helpful Methods 
+
+* D3 implements a handful of basic statistics helpers, such as:
+  * `d3.count`, `d3.sum`, `d3.mean`, `d3.median`, `d3.quantile`, 
+  * `d3.variance`, `d3.deviation`, `d3.extent`, 
+  * `d3.min/max`, `d3.count`, ...
+		
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+	
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+		### Helpful Methods Examples
+
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;'><script src="https://d3js.org/d3.v7.min.js"></script>  
+<script>
+var numbers = [83, 32, 14, 52, 31, 66, 12, 11];
+
+console.log( d3.mean(numbers) );
+
+console.log( d3.sum(numbers) / d3.count(numbers) );
+</script>
+</code></pre>
+
+Try the example code - check the output (try out other helper methods).
+		
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+	
 <!-- ------------------------------------------------------------- -->
 
 <section data-markdown style="text-align: left;">
