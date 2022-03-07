@@ -189,6 +189,42 @@ Try the example code - check the output (try other data).
 
 
 <!-- ------------------------------------------------------------- -->
+	
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+		## Example of `d3.group` **hierarchy**
+		
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;'>
+<script src="https://d3js.org/d3.v7.min.js"></script>  
+<script>
+var data = [
+  {name: "ABC", color:'blue',   amount: "34.0",   date: "11/12/2015"},
+  {name: "ABC", color:'orange', amount: "34.0",   date: "11/12/2015"},
+  {name: "DEF", color:'blue',   amount: "120.11", date: "11/12/2015"},
+  {name: "MNO", color:'green',  amount: "12.01",  date: "01/04/2016"},
+];
+
+var groupedData = d3.group(data, d =>d.name, d=>d.color )
+
+console.log( groupedData );
+console.log( groupedData.get('ABC') );
+console.log( groupedData.get('ABC').get('orange') );
+
+var hierarchy = d3.hierarchy(groupedData);
+console.log( hierarchy.children.length );
+console.log( hierarchy.children[0].data );
+</script>
+</code></pre>
+
+Try the example code - check the output (try other data).
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>	
+	
+	
+<!-- ------------------------------------------------------------- -->
 
 <!-- 
 <section data-markdown style="text-align: left;">
