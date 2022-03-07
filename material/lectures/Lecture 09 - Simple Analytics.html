@@ -118,9 +118,70 @@ objects!
 	</textarea>
 </section>
 
-
+	
 <!-- ------------------------------------------------------------- -->
 
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+		## Example `d3.filter` vs `array.filter`
+		
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;'><script src="https://d3js.org/d3.v7.min.js"></script>  
+<script>
+var data = [
+  {name: "ABC", color:'blue',   amount: "34.0",   date: "11/12/2015"},
+  {name: "ABC", color:'orange', amount: "34.0",   date: "11/12/2015"},
+  {name: "DEF", color:'blue',   amount: "120.11", date: "11/12/2015"},
+  {name: "MNO", color:'green',  amount: "12.01",  date: "01/04/2016"}
+];
+
+const result1 = data.filter( d=> d.name == 'ABC' );
+console.log( result1 );
+
+const result2 = d3.filter( data, d=>d.name=='ABC' );
+console.log( result2 );
+</script>
+</code></pre>
+
+Try the example code - check the output (try other filter values).
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+	
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+		## Example `d3.filter` data
+		
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;'><script src="https://d3js.org/d3.v7.min.js"></script>  
+<script>
+var vals = [
+  {name: "ABC", color:'blue',   amount: "34.0",   date: "11/12/2015"},
+  {name: "ABC", color:'orange', amount: "34.0",   date: "11/12/2015"},
+  {name: "DEF", color:'blue',   amount: "120.11", date: "11/12/2015"},
+  {name: "MNO", color:'green',  amount: "12.01",  date: "01/04/2016"},
+  {name: "XYZ", color:'green',  amount: "34.05",  date: "01/04/2016"}
+];
+var circles = d3.selectAll("test")
+                .data( vals )
+                .enter()
+                .filter( d=>d.name=='ABC' )
+                .append("circle")
+                .attr('r', function(d){ console.log( d ); return 1; } );
+</script>
+</code></pre>
+
+Try the example code - check the output (try other filter values).
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+	
+<!-- ------------------------------------------------------------- -->
+	
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
 		### The `d3.group`
