@@ -194,8 +194,7 @@ Try the example code - check the output (try other data).
 	<textarea data-template>
 		## Example of `d3.group` **hierarchy**
 		
-<pre><code class="stretch" style='line-height:1.0;font-size:70%;'>
-<script src="https://d3js.org/d3.v7.min.js"></script>  
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;'><script src="https://d3js.org/d3.v7.min.js"></script>  
 <script>
 var data = [
   {name: "ABC", color:'blue',   amount: "34.0",   date: "11/12/2015"},
@@ -367,11 +366,8 @@ Try the example code - check the output (try other data).
 		## `D3.index`
 		
 `d3.index` creates a **map** from key to unique value
-
-Example 
 		
-```js
-<script src="https://d3js.org/d3.v7.min.js"></script>  
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;'><script src="https://d3js.org/d3.v7.min.js"></script>  
 
 <script>
 var data = [
@@ -386,7 +382,7 @@ var indexes = d3.index( data, d=>d.name );
 console.log( indexes );
 console.log( indexes.get('ABC') );
 </script>
-```
+</code></pre>
 
 Try the example code - check the output (try other data).
 
@@ -404,11 +400,8 @@ Try the example code - check the output (try other data).
 		## `D3.index` (Multiple Keys)
 		
 `d3.index` **nested** groups
-
-Example 
 		
-```js
-<script src="https://d3js.org/d3.v7.min.js"></script>  
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;'><script src="https://d3js.org/d3.v7.min.js"></script>  
 
 <script>
 var data = [
@@ -424,8 +417,7 @@ var indexes = d3.index( data, d=>d.name, d=>d.amount );
 console.log( indexes );
 console.log( indexes.get('ABC').get('34.0') );
 </script>
-</script>
-```
+</code></pre>
 
 Notice you can pass multiple keys to construct a **hierarchical** data set.
 `ABC` contains two objects with different values.
