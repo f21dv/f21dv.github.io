@@ -326,16 +326,13 @@ d3.nest()
 		## `D3.rollup`
 		
 `d3.rollup` helps you **reduce** groups by computing summary values (e.g., sum or count)
-
-Example 
 		
-```js
-<script src="https://d3js.org/d3.v7.min.js"></script>  
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;'><script src="https://d3js.org/d3.v7.min.js"></script>  
 
 <script>
 var data = [
   {name: "ABC", amount: "34.0",   date: "11/12/2015"},
-  {name: "DEF", amount: "120.11", date: "11/12/2015"},
+  {name: "ABC", amount: "120.11", date: "11/12/2015"},
   {name: "MNO", amount: "12.01",  date: "01/04/2016"},
   {name: "XYZ", amount: "34.05",  date: "01/04/2016"}
 ];
@@ -349,7 +346,7 @@ var rollup = d3.rollup(
 console.log( rollup );
 console.log( rollup.get('ABC') );
 </script>
-```
+</code></pre>
 
 Try the example code - check the output (try other data).
 
