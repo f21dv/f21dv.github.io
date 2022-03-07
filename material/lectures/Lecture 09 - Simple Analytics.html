@@ -130,6 +130,42 @@ Try the example code - check the output (try out other helper methods).
 	</textarea>
 </section>
 	
+<!-- -------------------------------------------------------------------- -->
+
+<section>
+	<section data-markdown data-transition="slide" data-background="#50233c" data-background-transition="zoom">
+		<textarea data-template>
+		## Revision Question
+		What would the following output (and why)?
+```js
+<script src="https://d3js.org/d3.v7.min.js"></script>  
+<script>
+var vals = [{n: "Alice", age: NaN}, 
+            {n: "Bob",   age: 18 }, 
+            {n: "Other"          }];
+
+var c = d3.count(vals, d => d.age);
+console.log( 'c:', c );
+</script>
+```
+			
+
+		</textarea>
+	</section>
+	
+	<section data-markdown data-transition="slide" data-background="#50233c" data-background-transition="zoom">
+		<textarea data-template>
+		## Answer
+		
+		#### **c: 1**
+		
+		* d3.count(..) - returns the number of valid number values (i.e., not null, NaN, or undefined)
+
+		
+		</textarea>
+	</section>
+</section>
+	
 <!-- ------------------------------------------------------------- -->
 
 <section data-markdown style="text-align: left;">
