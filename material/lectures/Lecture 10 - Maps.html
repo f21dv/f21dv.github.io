@@ -114,6 +114,9 @@
 * Online GeoJSON Data View/Editor
   [Link](https://geojson.io)
   
+* Gallery Map Examples 
+  [Link](https://www.d3-graph-gallery.com/backgroundmap)
+  
 <aside class='notes'>
 </aside>
 	</textarea>
@@ -198,14 +201,36 @@ function showPosition(position) {
 <!-- ------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------- -->
 
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	### D3 & Maps
+
+To work with maps in D3, you need to know about three ideas:
+
+* **GeoJSON** - is a standard for representing geographical data in JSON
+* **Projections** - is a function that takes the latitude and longitude coordinates and converts them into x-y coordinates that D3 can use to draw shapes
+* **Generators** - uses the features in the GeoJSON to create shapes based on the projection
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+
+
+
+
 <!-- ------------------------------------------------------------- -->
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
 	### `d3.geoPath(..)` and `d3.geoMercator()`
 
-* `d3.geoPath(..)` given a GeoJSON geometry or feature object, it generates an SVG path data for rendering
-* `d3.geoMercator()` is used to draw The spherical Mercator projection
+* `d3.geoPath(..)` given a **GeoJSON** geometry or feature object, it generates an SVG path data for rendering
+* `d3.geoMercator()` is used to draw The spherical Mercator **projection**
 
 
 [Further details read/documentation](https://github.com/d3/d3-geo)
