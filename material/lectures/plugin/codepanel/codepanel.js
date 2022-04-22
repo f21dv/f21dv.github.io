@@ -7,6 +7,8 @@ style.textContent = `
     position: absolute;
     overflow: hidden;
     z-index:  10000;
+
+    visibility: hidden;
 }
 
 /* --------------------------- */
@@ -75,6 +77,8 @@ function togglecodepanel( sid )
    let els = document.getElementsByClassName( 'slider' );
    for (let i=0; i<els.length; i++)
    {
+	 els[i].style['visibility'] = 'visible';
+	   
 	 if ( els[i].id == 'sliderpanel' + sid ) continue;
 	 
      if ( els[i].classList.contains( 'in' ) )
