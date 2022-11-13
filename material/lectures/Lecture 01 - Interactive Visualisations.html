@@ -74,9 +74,9 @@
 	<textarea data-template>
 		## Overview
 
-		* Why is Visualization so Important?
+		* Why is Visualization so **Important**?
 		* What is Interactive Visualisation?
-		* Visualization Tools
+		* Visualization **Tools** (e.g., why D3JS)
 		* D3 Library
 		* Examples
 <aside class='notes'>
@@ -89,7 +89,7 @@
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	## What do we mean by Visualization?
+	## **What** do we mean by **Visualization**?
 
 	
 <aside class='notes'>
@@ -147,11 +147,149 @@ Example of Geo-Trace program to visualize web communication packets
 <!-- -------------------------------------------------------------------- -->
 
 <!-- -------------------------------------------------------------------- -->
-			
+	
 
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="linear-gradient(90deg,black, black 1%, rgba(0,0,0,0.2) 100% ),url('./images/besttool.jpg') 100% 100%/cover" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+	
+
+<div style='font-size:90pt;text-transform: uppercase;text-align:left;'>
+What is the best <b>tool</b> for <b>visualiations</b>?					
+</div>
+
+</textarea>
+</section>	
+
+
+
+
+<!-- -------------------------------------------------------------------- -->
+
+<!-- -------------------------------------------------------------------- -->
+	
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	## D3 
+	## Visualization tools
+	
+* **Type** of visualisations (and **interactions**)
+* Input and output data 
+* The communication medium (developers/users)
+* **Complexity and customizablity**
+  - Creative freedom
+  - Scalability
+* Licenses and cost
+* Availability and accessability
+	
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- -------------------------------------------------------------------- -->
+
+<!-- -------------------------------------------------------------------- -->
+	
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style="font-size:80%;"
+         data-background-transition="slide">
+<textarea data-template>
+	
+## Popular Visualization Tools (Key Points)
+
+| Tool | Type |  Coding Req. | Visualization techniques and Remarks |
+|----------|:-------------:|------:|------:|
+| Tableau Desktop | Propriety, expensive | Drag and drop| Variety of built-in charts and maps; BI tool, scalable
+| Quick sense | Propriety | Drag and drop | Adequate variety of charts; BI tool; memory requirement based on data volumes
+| **D3JS** | **Free \& Open source** | Coding required | **All types of charts possible**, but no built-in charts; JavaScript library
+| Google-Charts   | Free | Light coding required | Limited number of charts; JavaScript based
+| Visual.ly | Proprietary | Easy | Infographic generation tool
+
+</textarea>
+</section>
+
+<!-- -------------------------------------------------------------------- -->
+
+<!-- -------------------------------------------------------------------- -->
+	
+
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style="font-size:80%;"
+         data-background-transition="slide">
+<textarea data-template>
+
+## Popular Visualization Tools (Output)
+
+| Tool  | Output Format | Remarks |
+|:----------------|:-------------:|--------
+| Tableau Desktop | jpg/png/bmf | Not easy to integrate apps/APIs. Fast data engine
+| Quick sense | jpg/png | - 
+| **D3JS**  | **SVG** | **Large online community (large library of examples/flexible). Creative freedom. Time consuming to learn.**
+| Google-Charts | jpg/png/pdf | - 
+| Visual.ly | png,jpg,pdf,html | - 
+
+</textarea>
+</section>
+
+
+
+<section>
+	<section data-markdown data-transition="slide" data-background="#20533c" data-background-transition="zoom">
+		<textarea data-template>
+		## Revision Question
+		
+		Which visualiation tool/resource would you use to create a custom interactive visualization story (with no costs or hidden licenses) that could be deployed anywhere?
+		
+		* a) Tableau
+		* b) Quick sense
+		* c) D3JS
+		* d) Google Charts
+<aside class='notes'>
+</aside>
+		</textarea>
+	</section>
+	
+	<section data-markdown data-transition="slide" data-background="#20533c" data-background-transition="zoom">
+		<textarea data-template>
+		## Answer
+		
+		c) **D3JS**
+		
+		Free, open source, **industry standard**, allows complete **cutomizability**, large number of examples/resouces, active community for support, use HTML/CSS/JS/SVG run any modern browser on any operating system 
+		(good accessability factors).
+
+<aside class='notes'>
+</aside>
+		</textarea>
+	</section>
+</section>
+
+				
+<!-- -------------------------------------------------------------------- -->
+
+<!-- -------------------------------------------------------------------- -->
+	
+	
+	
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	## D3(JS) 
 	
 	* **What** is D3?
 	* **Why** use D3?
