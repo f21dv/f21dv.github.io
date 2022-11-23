@@ -38,7 +38,7 @@ F20DV/F21DV - <a href='https://www.macs.hw.ac.uk/students/cs/courses/f21dv-data-
 <td>Notes   		</td>
 <td>Tasks           </td>
 <td>Quizzes    		</td>
-<td>Crossword 		</td>
+<td>Extra 		</td>
 </tr>
 </thead>
 <tbody id="bodytoc">
@@ -66,20 +66,24 @@ material/
   crosswords/    // Crossword 00 - 
 */
 
+let ex4  = ['https://f21dv.github.io/material/extra/Applied Examples.html'];
+let ex5  = ['https://f21dv.github.io/material/extra/Good and Bad Visualizations.html'];
+
+
 // l:lecture, n:notes, q:quiz, t:tasks, c:crosswords 
 
 let toc = [
-  { wk: '1',  no: '00', name: 'Introduction'                   ,  l:true, n: true,  t:true,  q: true,  c: true  }, 
-  {           no: '01', name: 'Interactive Visualisations'     ,  l:true, n: true,  t:true,  q: true,  c: true  },
-  { wk: '2',  no: '02', name: 'Analytics and Aesthetics'       ,  l:true, n: true,  t:true,  q: true,  c: true  },
-  { wk: '3',  no: '03', name: 'Scalable Applications'          ,  l:true, n: true,  t:true,  q: true,  c: true  },
-  { wk: '4',  no: '04', name: 'Charts'                         ,  l:true, n: true,  t:true,  q: true,  c: true  },
-  { wk: '5',  no: '05', name: 'Applied Examples'               ,  l:true, n: true,  t:false, q: false, c: false },
+  { wk: '1',  no: '00', name: 'Introduction'                   ,  l:true, n: true,  t:true,  q: true,  e:null  }, 
+  {           no: '01', name: 'Interactive Visualisations'     ,  l:true, n: true,  t:true,  q: true,  e:null  },
+  { wk: '2',  no: '02', name: 'Analytics and Aesthetics'       ,  l:true, n: true,  t:true,  q: true,  e:null  },
+  { wk: '3',  no: '03', name: 'Scalable Applications'          ,  l:true, n: true,  t:true,  q: true,  e:null  },
+  { wk: '4',  no: '04', name: 'Charts'                         ,  l:true, n: true,  t:true,  q: true,  e:[ex4]  },
+  { wk: '5',  no: '05', name: 'Designing Visualizations'       ,  l:true, n: false, t:false, q: false, e:[ex5]  },
   { wk: '6',  no: '06', name: 'Reading Week (No Lectures)'    },
-  { wk: '7',  no: '07', name: 'Hierarchies'                    ,  l:true, n: true,  t:true,  q: true,  c: false },
-  { wk: '8',  no: '08', name: 'Topic Models'                   ,  l:true, n: true , t:true,  q: true,  c: false },
-  { wk: '9',  no: '09', name: 'Simple Analytics'               ,  l:true, n: false, t:false, q: false, c: false },
-  { wk: '10', no: '10', name: 'Maps'                           ,  l:true, n: true , t:true,  q: true,  c: false },
+  { wk: '7',  no: '07', name: 'Hierarchies'                    ,  l:true, n: true,  t:true,  q: true,  e:null },
+  { wk: '8',  no: '08', name: 'Topic Models'                   ,  l:true, n: true , t:true,  q: true,  e:null },
+  { wk: '9',  no: '09', name: 'Simple Analytics'               ,  l:true, n: false, t:false, q: false, e:null },
+  { wk: '10', no: '10', name: 'Maps'                           ,  l:true, n: true , t:true,  q: true,  e:null },
   { wk: '11', no: '11', name: 'Review & Support Lecture'       ,  l:true },
 ];
 
@@ -113,8 +117,14 @@ for (let i=0; i<toc.length; i++)
 	if ( toc[i].q ) newRow.insertCell().innerHTML = `<a href='./material/quizzes/Quiz ${toc[i].no} - ${toc[i].name}.html'>Quiz</a>`;
 	else            newRow.insertCell().innerHTML = '-';
 	
-	if ( toc[i].c ) newRow.insertCell().innerHTML = `<a href='./material/crosswords/Crossword ${toc[i].no} - ${toc[i].name}.html'>Crossword</a>`;
+	if ( toc[i].e ) 
+	{
+					let cell = newRow.insertCell();
+					cell.innerHTML = ``;
+					for (let n=0; n<toc[i].e.length; n++){ cell.innerHTML += `<a href='${toc[i].e[n]}'>Link</a> `;  }
+	}
 	else            newRow.insertCell().innerHTML = '-';
+	
 	
 }
 
