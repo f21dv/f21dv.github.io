@@ -1,0 +1,168 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="./quiz.css">
+<script src="./prettyprint/run_prettify.js"></script>
+
+</head>
+<body>
+
+<h1>Revision Quiz</h1>
+
+<button id="previous">Previous Question</button>
+<button id="next">Next Question</button>
+<button id="submit">Submit Quiz</button>
+<div id="results"></div>
+
+<div class="quiz-container">
+  <div id="quiz"></div>
+</div>
+
+<script>
+  const myQuestions = [
+    {
+      question: "A story typically has a 'start', '________' and an 'end'.",
+      answers: {
+        a: "story",
+		b: "middle",
+		c: "repeated start",
+		d: "visualization"
+      },
+      correctAnswer: "b"
+    }
+	,
+    {
+      question: `Data storytelling uses the data to create new knowledge and new decisions or actions`,
+      answers: {
+        a: "True",
+		b: "False"
+      },
+      correctAnswer: "a"
+    }
+	,
+    {
+      question: "Data storytelling helps to see the bigger picture from the data details",
+      answers: {
+        a: "True",
+		b: "False"
+      },
+      correctAnswer: "a"
+    }
+	,
+	{
+      question: "Data storytelling is easy?",
+      answers: {
+        a: "True",
+		b: "False"
+      },
+      correctAnswer: "b"
+    }
+	,
+	{
+      question: "Should data storytelling present data with a bias?",
+      answers: {
+        a: "True",
+		b: "False"
+      },
+      correctAnswer: "b"
+    }
+	,
+	{
+      question: "Exploritory and expository data visualization are the same?",
+      answers: {
+        a: "True",
+		b: "False"
+      },
+      correctAnswer: "b"
+    }
+	,
+	{
+      question: "Expository visualiztion is when you want to show something specific to your audience",
+      answers: {
+        a: "True",
+		b: "False"
+      },
+      correctAnswer: "a"
+    }
+	,
+	{
+      question: "Aesthetics of visualization is a measure of the visual beauty and pleasure for the viewer (satisfaction to the view)",
+      answers: {
+        a: "True",
+		b: "False"
+      },
+      correctAnswer: "a"
+    }
+	,
+	{
+      question: "Visual aesthetics are subjective?",
+      answers: {
+        a: "True",
+		b: "False"
+      },
+      correctAnswer: "a"
+    }
+	,
+	{
+      question: "Do good visual aesthetics invoke curiosity and interest?",
+      answers: {
+        a: "True",
+		b: "False"
+      },
+      correctAnswer: "a"
+    }
+	,
+	{
+      question: "Should the viewer always be able to 'infer' the underlying 'data'?",
+      answers: {
+        a: "True",
+		b: "False"
+      },
+      correctAnswer: "b"
+    }
+	,
+	{
+      question: "Is spacing of visualization more important than color?",
+      answers: {
+        a: "Yes",
+		b: "No"
+      },
+      correctAnswer: "b"
+    }
+	,
+	{
+      question: "Chernoff Faces method in data visualization technique was developed to represent multivariate data",
+      answers: {
+        a: "True",
+		b: "False"
+      },
+      correctAnswer: "a"
+    }
+	,
+	{
+      question: "An outlier is a data vector that belongs to a cluster but is relatively dissimilar from other members of the cluster?",
+      answers: {
+        a: "True",
+		b: "False"
+      },
+      correctAnswer: "a"
+    }
+	
+	
+  ];
+  
+  
+</script>
+<script src="./quiz.js"></script>
+
+<div class="hidden-mobile">
+    <div style="display: block; position: absolute; bottom: 5px; left: 5px; margin-left: 0px; z-index: 20; text-align: left;">
+        <a href="https://f21dv.github.io" class="twitter-follow-button" data-show-count="false"><img src="../lectures/images/webhome.png" width="8%"></a>
+    </div>
+</div>
+
+
+</body>
+</html>
+
+
