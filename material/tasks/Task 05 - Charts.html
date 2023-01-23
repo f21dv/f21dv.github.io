@@ -30,10 +30,83 @@ These tasks provide an opportunity for you to try out and experiment with the D3
 **Exercise:** Put your six graph implementations in six separate JS files so you can include and use them as needed.  Then write an example program, that draws all six graphs on the same page with same or similar data next to one another.
 
 
+# Pie Charts 
 
 
+The d3.pie() function takes in a dataset and creates handy data for you to generate a pie chart in the SVG. It
+calculates the start angle and end angle for each wedge of the pie chart. These start and end angles can then be used
+to create actual paths for the wedges in the SVG.
+
+```
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+var data = [2, 4, 8, 10];
+var pie = d3.pie()
+console.log(pie(data))
+</script>
+```
+
+In the above example, you defined a d3.pie() object and provided your data to the pie function. This function
+calculated certain fields for the pie chart like `startAngle’ and `endAngle` along with the data values.
+
+You usually use the d3.pie() with the d3.arc() method. The d3.arc() generates an arc. These are the paths that will
+create your pie's wedges. Arcs need an inner radius and outer radius. If the inner radius is 0, the result will be a
+piechart, otherwise the result will be a donut chart. You need to supply these generated arcs to your SVG path
+elements.
+
+```
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+var data = [3, 4, 8, 12];
+const xSize = 400; const ySize = 400;
+const margin = 40;
+const xMax = xSize - margin*2;
+const yMax = ySize - margin*2;
+// Append SVG Object to the Page
+const svg = d3.select("body")
+.append("svg")
+.attr('width', xSize )
+.attr('height', ySize )
+.append("g")
+.attr("transform","translate(" + xSize/2 + "," + ySize/2 + ")");
+const radius = Math.min(xSize, ySize) / 2;
+var color = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
+// Generate the pie
+var pie = d3.pie();
+// Generate the arcs
+var arc = d3.arc()
+.innerRadius(0)
+.outerRadius(radius);
+//Generate groups
+var arcs = svg.selectAll("arc")
+.data(pie(data))
+.enter()
+.append("g")
+.attr("class", "arc")
+//Draw arc paths
+arcs.append("path")
+.attr("fill", function(d, i) {
+return color(i);
+})
+.attr("d", arc);
+</script>
+```
+
+Step by step overview of the example above:
+
+* 1. var pie = d3.pie(); This will generate your pie values like startAngle and endAngle as seen in the previous example.
+* 2. Next, you define your arc with an inner radius of 0 and outer radius as the radius calculated earlier. This will be
+used to give paths to your pie wedges.
+* 3. Then, you create group elements for each of your data values. The group element will hold your individual paths
+or wedges.
+* 4. Finally, you add a path element for each of our wedges. You provide the arc generated earlier and fill it with a
+color from your color scale.
 
 
+**Exercise:** Add more data values (e.g., 12 different numbers)
+
+**Exercise:** You’ve already learned about svg text items (previous sections). Add a text item to each ‘arc’ (e.g., draw
+the values for the data on the pie chart)
 
 
 
