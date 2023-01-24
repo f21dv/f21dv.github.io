@@ -601,10 +601,79 @@ Answer: **d) 'abc'**
 	
 
 
+## Revision Question
+
+<div style='font-size:90%;'>
+
+What is the color of the paragraph containing the text 'two'?
+
+```
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<p>one</p>
+<p>two</p>
+<p>three</p>
+<script>
+let data = d3.selectAll('p')
+             .data( [ 'red', 'orange', 'green', 'blue' ] )
+             .each( function(d){ 
+                d3.select(this).node().style['color'] = d;
+             });
+</script>
+```
+
+* a) red
+* b) green
+* c) blue
+* d) orange
+* e) black
+
+</div>
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Answer
+
+Answer: **b) green**
+
+> Example shows you how to select the native html element using the 'node()' function.  Select all paragraphs (p) and they are bounds to the data array (don't call enter to modify the data).  
+> You could also use 'style(..)' method or multiple ways to accomplish the same result.
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+
+
+
 ## Summary
 
 * **Data Binding** (Linking Data to Visuals)
 * Especially **important** for 'animations' and 'interactive' graphics
+* Selecting, updating, binding, ...
 
 
 
