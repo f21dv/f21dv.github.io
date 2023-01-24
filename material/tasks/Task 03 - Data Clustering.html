@@ -1,0 +1,212 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Data Visualization and Analytics</title>
+  <link rel="stylesheet" href="https://f21dv.github.io/material/tasks/md2html/theme.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.7.2/showdown.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
+
+</head>
+<body>
+  <div id="content"></div>
+  <textarea id="input" style='display:none'>
+
+
+# Lab - Data Clustering
+
+These tasks provide an opportunity for you to try out and experiment with the D3 library (e.g., working with data-clusters and the k-mean centroid algorithm).
+
+The labs are important, as they help you develop and demonstrate a variety of skills, such as, problem solving, communication skills, time-management and so on. The labs are structured to encourage a mix of guided and active learning, innovative
+development, critical thinking and knowledge-based expertise of the subject.
+
+Each lab requires you to do **additional reading** to solve the problems (also extra checks to verify that you understand concepts, reasons and limitations). The lab also offers you the chance to come along and discuss or ask any questions while getting guided feedback on your progress/lab work.
+    
+# Resources
+    
+Important and useful resources that will help you:
+* F20/21DV Material (https://f21dv.github.io/)
+* D3 Homepage/Documentation (https://d3js.org/)
+* WikiPage K-Mean (https://en.wikipedia.org/wiki/K-means_clustering)
+* Example step-by-step k-mean [link](https://medium.com/data-folks-indonesia/step-by-step-to-understanding-k-means-clustering-and-implementation-with-sklearn-b55803f519d6)
+    
+
+
+## K-Mean cluster (1d example)
+Simplifed example to help understand the concept of finding clusters (centroid points).  
+
+* Step 1. Determine the number of clusters, call that "K"
+* Step 2. Randomly select "K" distinct centroids (random starting points)
+* Step 3. Measure the distance (euclidean distance) between each point and each centroid - that point is 'assigned' to the shorted Euclidean distance (note, Euclidean distance works in 1d, 2d, 3d, 4d, ..)
+* Step 4. Assign the each point to the nearest centroid (i.e., cluster)
+* Step 5. Calculate the mean of each cluster as new centroid (each point was 'assigned' to each centroid/cluster - used to update new centroid)
+* Step 6. Repeat step 3 to 5 with the new center of cluster
+
+
+Some further reading/examples
+References:
+* https://en.wikipedia.org/wiki/K-means_clustering
+* https://medium.com/data-folks-indonesia/step-by-step-to-understanding-k-means-clustering-and-implementation-with-sklearn-b55803f519d6
+
+
+## Example Implementation
+
+The following shows a simple example of the k-mean plotting points on a 1d scale (from left to right).
+
+```
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+
+<button onclick='kmeanIterate();' id='step'>Iteration Step</button>
+<br>
+
+<script>
+// create 10 random points (0-10)
+// [ index assigned centroid, value ]
+const points = Array(10).fill().map( (d,i)=>{ return [i,Math.random()*10]; } );
+
+var centroids = [ 2, 5, 9 ]; // 3 clusters (K)
+var iteration = 0;
+
+// update function to calculate k-mean step
+function kmeanIterate()
+{
+iteration++;
+//console.log('step..');
+// assigned each point to th nearest centroid
+for (let i=0; i<points.length; i++)
+{
+    let d = Math.abs(points[i][1] - centroids[0]);
+    points[i][0] = 0; // nearest
+
+    for (let k=1; k<centroids.length; k++)
+    {
+        let dn = Math.abs(points[i][1] - centroids[k]);
+        if ( dn < d )
+        {
+            d = dn;
+            points[i][0] = k;
+        }
+    }
+}
+
+// update centroids
+for (let k=0; k<centroids.length; k++)
+{
+    let dsum   = 0;
+    let dcount = 0;
+    for (let i=0; i<points.length; i++)
+    {
+        if ( points[i][0] === k )   
+        {
+            dsum += points[i][1];
+            dcount++;
+        }
+    }
+    if ( Math.abs(dcount>0) ) dsum /= dcount;
+    centroids[k] = dsum;
+}
+
+//console.log( centroids );
+
+svg.selectAll('.centroid')
+   .data(centroids)
+    .attr("cx", d=>{ return x( d ); } )
+
+svg.selectAll('.point')
+   .data(points)
+   .style("fill", d=>{ return ["blue", "green", "orange"][ d[0] ]; } )
+
+
+document.getElementById('step').innerHTML = `Iteration Step (${iteration})`;
+}// end iteration(..)
+
+
+document.body.style.height = '500px';
+
+let svg = d3.select('body').append('svg').attr('width',400).attr('height',400);
+
+var x = d3.scaleLinear().domain([0, 10]).range([0, 400]);
+
+svg.selectAll('.centroid')
+   .data(centroids)
+   .enter().append("circle")
+    .attr('class', 'centroid')
+    .style("stroke", "gray")
+    .style("fill", (d,i)=>{ return ["blue", "green", "orange"][ i ]; } )
+    .attr("r",  10)
+    .attr("cx", d=>{ return x( d ); } )
+    .attr("cy", 20);
+
+svg.selectAll('.point')
+   .data(points)
+   .enter().append("circle")
+    .attr('class', 'point')
+    .style("stroke", "gray")
+    .style("fill", "gray")
+    .attr("r",  5)
+    .attr("cx", d=>{ return x( d[1] ); } )
+    .attr("cy", 20);
+
+console.log('ready..');
+</script>
+```
+
+**Exercise** Try adding more points and different starting approximations for the k-mean 1d k-mean cluster example above.
+
+
+**Exercise** Try expanding the example to demonstrate the concept in 2d (i.e., 2d scatter diagram).
+
+    
+</textarea>
+  
+<br><br>
+  
+
+
+
+
+
+
+<script>
+
+   //function htmlEntities(str) {
+   //   return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+   //}
+
+	let eleminput = document.getElementById('input')
+	//let txt = elem.innerHTML;
+	//txt = htmlEntities( txt );
+	//elem.innerHTML = txt;
+	
+    elem = document.getElementById('content')
+    converter = new showdown.Converter();
+    elem.innerHTML = converter.makeHtml(eleminput.value)
+    
+	hljs.initHighlightingOnLoad();
+</script>
+<!--
+  <script src="https://yihui.name/js/math-code.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+-->
+  
+<div id="myhome" style="z-index: auto; display: block; position: fixed; bottom: 5px; left: 5px;">
+    <a href="https://f21dv.github.io" data-show-count="false"><img src="https://f21dv.github.io/material/lectures/images/webhome.png" width="8%"></a>
+</div>
+
+
+<!-- ------------------------------------------------------------------ -->
+
+
+
+
+
+<!-- ------------------------------------------------------------------ -->
+
+
+</body>
+</html>
