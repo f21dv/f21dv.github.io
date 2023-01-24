@@ -1,0 +1,657 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <script>
+	window.history.replaceState = function(){ };
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/serif.min.css" id="theme">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/white.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/zenburn.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/monokai.min.css">
+  
+<!--
+  <link rel="stylesheet" href="https://layout.xbdev.net/var/images/pdf.css">
+-->
+  <style>
+  b, strong {
+     color: red;
+  }
+  h1,h2,h3,h4,h5 {
+     color:unset!important;
+  }
+  .hljs {
+     font-size:105%;
+  }
+  </style>
+
+</head>
+<body>
+    <div class="reveal">
+      <div style='position:absolute;left:10px;top:10px;font-size:8pt;color:transparent;'>https://layout.xbdev.net</div>
+      <div class="slides" style='border:0px solid orange;'>
+		<!--
+        <section data-background-color="rgb(70, 70, 255)"><h2>Welcome</h2></section>
+		<section style="height:720px; background-color:rgb(70, 70, 255);"><h2>How are you?</h2></section>
+		-->
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="linear-gradient(90deg,black, black 10%, rgba(0,0,0,0.2) 100% ),url('https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg\?auto=compress&cs=tinysrgb&h=650&w=940') 100% 100%/cover" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+<!--{border:0px solid orange}-->					
+
+					
+## Revision Question
+<!--{background:https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&h=650&w=940}-->
+<!--{gradient:90deg,black, black 10%, rgba(0,0,0,0.2) 100% }-->
+
+# D3 Practical Insights
+Coding Examples
+	
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Overview
+
+* Using D3 (Basics)
+* Simplified Code Examples
+* Q&A Style
+* Data Binding/HTML/SVG
+* Discussion (Why)
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+	
+## Revision Question (Binding Data)
+
+What is the console output for the following code? (and why?)
+
+<div style='font-size:90%;'>
+
+```
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<p>test</p>
+<script>
+d3.select("body").selectAll("p")
+  .data([1, 2, 3, 4, 5])
+  .enter()
+  .each( (d)=>{
+    console.log( d );
+  });
+</script>
+```
+
+* a) 1,2,3,4,5
+* b) 1
+* c) 2,3,4,5
+* d) p
+* e) test
+
+</div>
+
+---
+
+## Answer 
+
+Output: **c) 2,3,4,5**
+
+Why?  'Enter' is only called for **new** items which need adding (already a single 'p' added before the function was called.  The excluded data items would be called with the 'Update()' method
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+What is the output to the 'console' window for the following code? (and why?)
+
+<div style='font-size:85%;line-height:1;'>
+
+```
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+let svg = d3.select('body');
+svg.append('span').text('4'); 
+
+svg.selectAll("span")
+   .data(['1', '2', '3'] )
+   .join( 
+      enter  => { },
+      update => { update.each( (d,  i)=>{  console.log( d ); } );
+   }
+);
+</script>
+```
+
+* a) ```1, 2, 3```
+* b) ```1```
+* c) ```2, 3```
+* d) ```4```
+
+
+</div>
+
+---
+
+## Answer
+
+Answer: **b) ```1```**
+
+Outputs '1' to the console window - as there already exists a single svg text item - so of the 3 data components, '1' is updated, and '2','3' are added using the enter.
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+What is the console output for the following code? (and why?)
+
+<div style='font-size:80%;line-height:1;'>
+
+```
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+let svg = d3.select('body').append('span');
+
+svg.append('span').text('1');
+svg.append('span').text('2');
+svg.append('span').text('3');
+
+svg.selectAll("span")
+   .data(['4'] )
+   .join( 
+      enter  => { },
+      update => { },
+      exit   => { exit.each( (d,i)=>{ console.log(i); } ); }
+   );
+</script>
+```
+
+* a) ```1, 2```
+* b) ```3```
+* c) ```4```
+* d) ```2, 3```
+
+
+</div>
+
+---
+
+## Answer
+
+Answer: **a) ```1, 2```**
+
+Outputs '1, 2' to the console window - as there already exists 3 span items, so 2 have to be removed.  'd' value is null as there isn't a new value, the 'i' is the index of the item being removed (2nd and 3rd index starting a 0).
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question (Binding Data)
+
+What is the console output for the following code? (and why?)
+
+<div style='font-size:80%;line-height:1;'>
+
+```
+<script src='https://d3js.org/d3.v7.min.js'></script>
+
+<span>test</span>
+
+<script>
+d3.select("body")
+  .selectAll("text")
+  .data(['11', '22', '33' ])
+  .join(
+      enter=> { enter.each( (d)=>{ console.log( d ); } ) },
+      update=>{ },
+      exit=>  { }
+  );
+</script>
+```
+
+* a) 11, 22, 33
+* b) 22
+* c) 22, 33
+* d) 33
+* e) 11
+
+</div>
+
+---
+
+## Answer 
+
+Output: **a) 11, 22, 33**
+
+Why?  'Enter' is only called for **new** items which need adding (a 'span' was added using 'html', but the 'selectAll' selects all 'svg:text' items - there aren't any of them - so the enter gets called for all 3 items (enter method).
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+What is the console output for the following example?
+
+```
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<p>hello</p>
+<script>
+d3.selectAll('p')
+  .each( function(d, i){
+     let p = d3.select(this);
+     p.text( i );
+  });
+</script>
+```
+
+* a) 0
+* b) 'p'
+* c) undefined
+* d) "hello"
+* e) 1
+
+---
+
+## Answer
+
+Answer: **a) 0**
+
+> Important about the 'each(..)' method - it takes a 'function' - however, if you use the '=>' arrow notation, it does not support 'binding' so you cannot select the 'current element' being iterated.  See details [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+What is the 'console' output for the following code (and why)?
+
+```
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<p>hello</p>
+<script>
+d3.selectAll('p')
+  .each( function(d, i){
+     console.log( d );
+  });
+</script>
+```
+
+* a) 0
+* b) "hello"
+* c) 1
+* d) undefined
+* e) 'p'
+
+---
+
+## Answer
+
+Answer: **d) undefined**
+
+> No data has been 'bound' to the selected elements, hence, there isn't any associated data when iterating over each element using 'each'.
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+What is the console output for the following code:
+
+<div style='font-size:85%;'>
+
+```
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<p>hello</p>
+<script>
+d3.selectAll('p')
+  .data( [ 1, 2, 9 ] )
+  .each( function(d, i){
+     console.log( d );
+  });
+</script>
+```
+
+* a) 1
+* b) 2
+* c) 9
+* d) undefined
+* e) 'p'
+* f) 'hello'
+
+</div>
+
+---
+
+## Answer
+
+Answer: **a) 1**
+
+> No 'enter' is getting called - only iterating over the selected items with the associated data.  Adding 'enter' chain will allow you to 'add' elements to match the number of data elements with the visual elements
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+<div style='font-size:90%;'>
+
+What is the output on screen for the following code:
+
+```
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<div class='val'>value</div>
+<script>
+d3.selectAll('.val')
+  .data( ['a', 'b', 'c' ] )
+  .text( d=>d );
+</script>
+```
+
+* a) 'a'
+* b) 'b'
+* c) 'c'
+* d) 'e'
+* e) 'value'
+* f) 'div'
+
+</div>
+
+---
+
+## Answer
+
+Answer: **a) 'a'**
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+<div style='font-size:90%;'>
+
+What is the output on screen for the following code? 
+
+```
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<div class='val'>value</div>
+<script>
+d3.selectAll('.val')
+  .data( ['a', 'b', 'c' ] )
+  .enter()
+  .text( d=>d );
+</script>
+```
+
+* a) 'value'
+* b) 'a'
+* c) 'b'
+* d) 'c'
+* e) 'd'
+* f) undefined
+
+</div>
+
+---
+
+## Answer
+
+Answer: **a) 'value'**
+
+> The 'enter' is called for each new item, however, no append is getting called so no new items are added (hence the original 'value' is left displayed on screen).
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+<div style='font-size:80%;'>
+
+What is the output on screen for the following code?
+
+```
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<span class='value'></span>
+<script>
+const v = ['a', 'b', 'c'];
+let data = d3.selectAll('.val')
+             .data( v )
+             .enter()
+             .append('span')
+             .attr('class', 'val'); // or use classed(..)
+d3.selectAll('.val')
+  .text(d=>d);
+</script>
+```
+
+* a) 'value'
+* b) 'a'
+* c) '.val'
+* d) 'abc'
+* e) 'b'
+* f) undefined
+
+</div>
+
+---
+
+## Answer
+
+Answer: **d) 'abc'**
+
+> There is a span element, but it has the class name 'value'  The 'selectAll(..)' selects all span elements with 'val' class name (i.e., non). The 'data.enter()' appends 3 new 'span' elements and sets the class name to '.val'.  Final couple of lines, the selectAll('.val') returns the 3 elements, which the text(..) is called and sets the data for them.
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+
+## Summary
+
+* **Data Binding** (Linking Data to Visuals)
+* Especially **important** for 'animations' and 'interactive' graphics
+
+
+
+
+
+
+
+
+
+
+
+
+</textarea>
+</section>
+        
+      </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/highlight.min.js"></script>
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/math/math.min.js"></script>
+<!--
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/math/katex.min.js"></script>
+-->
+
+    <script>
+    window.addEventListener('load', function() {
+      console.log('setting up reveal');
+	  //window.history.pushState(null, null, '?print-pdf');
+
+      Reveal.initialize( { width: 1240,
+  						   height: 720,
+						   controls: true,
+						   progress: true,
+						   center: true,
+						   hash: true,
+                           transition: 'fade', // none/fade/slide/convex/concave/zoom
+						   controlsTutorial: true,
+                           plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX  ]
+                         } );
+    });
+    </script>
+</body>
+</html>
+	

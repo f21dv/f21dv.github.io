@@ -67,7 +67,8 @@ material/
 */
 
 let ex1  = ['https://f21dv.github.io/material/extra/d3vizwhatandwhy.html'];
-let ex2  = ['https://f21dv.github.io/material/extra/reexp.html'];
+let ex2  = ['https://f21dv.github.io/material/extra/reexp.html',
+            'https://f21dv.github.io/material/extra/revisiond3binding.html'];
 let ex4  = ['https://f21dv.github.io/material/extra/Applied Examples.html'];
 let ex5  = ['https://f21dv.github.io/material/extra/Good and Bad Visualizations.html'];
 let ex9  = ['https://f21dv.github.io/material/extra/countrypopulationdensity.html'];
@@ -81,7 +82,7 @@ let ex9  = ['https://f21dv.github.io/material/extra/countrypopulationdensity.htm
 let toc = [
   { wk: '1',  no: '00', name: 'Introduction'                   ,  l:true, n: true,  t:true,  q: true,   e:null  }, 
   {           no: '01', name: 'Interactive Visualisations'     ,  l:true, n: true,  t:true,  q: true,   e:[ex1] },
-  { wk: '2',  no: '02', name: 'Data Analytics'                 ,  l:true, n: false, t:true,  q: false,  e:[ex2] },
+  { wk: '2',  no: '02', name: 'Data Analytics'                 ,  l:true, n: false, t:true,  q: false,  e:ex2 },
   {           no: '03', name: 'Data Clustering'                ,  l:true, n: false, t:true,  q: false,  e:null  },
   { wk: '3',  no: '04', name: 'Scalable Visualizations'        ,  l:true, n: true,  t:true,  q: true,   e:null  },
   { wk: '4',  no: '05', name: 'Charts'                         ,  l:true, n: true,  t:true,  q: true,   e:[ex4] },
@@ -127,8 +128,8 @@ for (let i=0; i<toc.length; i++)
 	if ( toc[i].e ) 
 	{
 					let cell = newRow.insertCell();
-					cell.innerHTML = ``;
-					for (let n=0; n<toc[i].e.length; n++){ cell.innerHTML += `<a href='${toc[i].e[n]}'>Link</a> `;  }
+					cell.innerHTML = '';
+					for (let n=0; n<toc[i].e.length; n++){ cell.innerHTML  += `<a href='${toc[i].e[n]}'>Link</a> `;  }
 	}
 	else            newRow.insertCell().innerHTML = '-';
 	
