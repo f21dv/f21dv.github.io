@@ -72,7 +72,9 @@
 	<textarea data-template>
 		## Overview
 
-		* Simple analytics: filtering, grouping data 
+		* What do we mean by **data and analytics**?
+		* Background on data and associated challenges
+		* Simple analytics: processing, filtering, grouping data 
 		* Hierarchies and data manipulation/organisation
 		
 <aside class='notes'>
@@ -80,17 +82,163 @@
 	</textarea>
 </section>
 
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="linear-gradient(90deg, black 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%),url('./images/lecture2b/back1.jpg') 100% 100%/cover" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+     
+
+## **What** is Data Analytics?
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="linear-gradient(90deg, black 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%),url('./images/lecture2b/back2.jpg') 100% 100%/cover" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+     
 	
+
+
+<h3 style='color:white;'> What is Data Analytics? </h3>
+
+
+
+Data analytics is the process of **analyzing** raw data in order to draw out **meaningful, actionable insights**.
+
+
+</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+<textarea data-template>
+
+## Let's Talk about Data 
+
+* What is **data**?
+* How much **data** is there in the world?
+* What **formats** and types of data are there?
+* Is the data easy to access and **structured**?
+* What **challenges** and problems are there with data?
+
+</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="linear-gradient(90deg, black 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%),url('./images/lecture2b/back3.jpg') 100% 100%/cover" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+     
+
+## Question
+
+What **percentage** of the world's data was created in the last 2 years?
+
+* a) 30%
+* b) 50%
+* c) 70%
+* d) 80%
+* e) 90%
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="linear-gradient(90deg, black 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.2) 100%),url('./images/back4.jpg') 100% 100%/cover" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Answer
+
+Answer: **e) 90%**
+
+<span style='font-size:110%;color:red;font-weight:900;'>90%</span> of the world's data has been created in the last 2 years alone!
+
+> Every day we create 2,500,000,000,000,000,000 bytes of data (or 2.5 quintillion bytes of data).
+
+
+
+</textarea>
+</section>
+    
+<!-- ------------------------------------------------------------- -->
+    
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="url('./images/lecture2b/back5.jpg') 50% 0%/cover no-repeat " 
+		 data-background-color="white;"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+     
+
+
+# Data
+
+Most of the data we generate is **raw** and **unstructured**
+
+Challenges around **visualizing**, verifying, **gaps** and inconsistency with the data
+
+</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+<textarea data-template>
+## Visualizing and **Interacting** with Data 
+	
+* Data is **not** always **ready and prepared**
+* Not just **load and display** graphs
+* Processing and extracting **information from the data** (e.g., sorting, filtering, combining, calculating, ...)
+
+</textarea>
+</section>
+
 <!-- ------------------------------------------------------------- -->
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
 		### Helpful Methods 
+		
+		> D3 makes it easier to manage data
 
 * D3 implements a handful of basic statistics helpers, such as:
   * `d3.count`, `d3.sum`, `d3.mean`, `d3.median`, `d3.quantile`, 
   * `d3.variance`, `d3.deviation`, `d3.extent`, 
-  * `d3.min/max`, `d3.count`, ...
+  * `d3.min/max`, `d3.filter`, `d3.sort` ...
 		
 <aside class='notes'>
 </aside>
@@ -636,7 +784,9 @@ Try the example code - check the output.
 	<textarea data-template>
 	## Summary
 
-	* Manipulating and Filtering Data 
+	* Importance of Data (**Challenges**)
+	* **Working with Data** (using D3)
+	* Processing, Manipulating and Filtering Data 
 	* `d3.groups`
 	  * Older versions `d3.nests`
 	
