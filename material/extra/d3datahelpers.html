@@ -31,7 +31,7 @@
 <body>
     <div class="reveal">
       <div style='position:absolute;left:10px;top:10px;font-size:8pt;color:transparent;'>https://layout.xbdev.net</div>
-      <div class="slides" style='border:0px solid orange;'>
+      <div class="slides" style='border:4px solid orange;'>
 		<!--
         <section data-background-color="rgb(70, 70, 255)"><h2>Welcome</h2></section>
 		<section style="height:720px; background-color:rgb(70, 70, 255);"><h2>How are you?</h2></section>
@@ -49,7 +49,7 @@
      
 	
 
-<!--{border:0px solid orange}-->
+<!--{border:4px solid orange}-->
 
 <!--{background:https://images.pexels.com/photos/311268/pexels-photo-311268.jpeg?auto=compress&cs=tinysrgb&h=650&w=940}-->
 <!--{gradient:90deg, rgba(0,0,0,0.8), rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%}-->
@@ -426,30 +426,6 @@ Answer **e) 12**
      
 	
 
-### Sets
-
-* **d3.difference** - compute a set difference.
-* **d3.disjoint** - test whether two sets are disjoint.
-* **d3.intersection** - compute a set intersection.
-* **d3.superset** - test whether a set is a superset of another.
-* **d3.subset** - test whether a set is a subset of another.
-* **d3.union** - compute a set union.
-
-</textarea>
-</section>
-        
-<section data-markdown 
-         data-transition="fade" 
-		 data-background-image=''
-         data-background="" 
-		 data-background-color="#3553bc"
-         data-background-size="cover"
-		 style=""
-         data-background-transition="slide">
-<textarea data-template>
-     
-	
-
 ## Revision Questions
 
 What is the console output for the following code:
@@ -488,7 +464,78 @@ Answer: **b) 8**
          data-transition="fade" 
 		 data-background-image=''
          data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+### Sets
+
+* **d3.difference** - compute a set difference.
+* **d3.disjoint** - test whether two sets are disjoint.
+* **d3.intersection** - compute a set intersection.
+* **d3.superset** - test whether a set is a superset of another.
+* **d3.subset** - test whether a set is a subset of another.
+* **d3.union** - compute a set union.
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
 		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+
+## Revision Question
+
+What is the console output for the following code:
+
+```
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+let aa = [ 1 , 5, 10 ];
+let ab = [ 10, 2, 5  ];
+let r = d3.union( aa, ab ); // A ∪ B
+</script>
+```
+
+* a) [1,10,2,3]
+* b) [11,7,15]
+* c) [1,5,10,2,3]
+* d) [31]
+* e) [1,5,10,2]
+
+---
+
+## Answer
+
+Answer: **e) [1,5,10,2]**
+
+> Returns a **new** InternSet containing every (distinct) value that appears in any of the given iterables. The order of values in the returned set is **based on their first occurrence in the given iterables**.
+
+> Useful when developing visualisations such as Venn diagrams.
+
+Further information on Set Operations [LINK](https://observablehq.com/@d3/set-operations)
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
          data-background-size="cover"
 		 style=""
          data-background-transition="slide">
