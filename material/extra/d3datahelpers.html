@@ -1,0 +1,609 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <script>
+	window.history.replaceState = function(){ };
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/serif.min.css" id="theme">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/white.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/zenburn.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/monokai.min.css">
+  
+<!--
+  <link rel="stylesheet" href="https://layout.xbdev.net/var/images/pdf.css">
+-->
+  <style>
+  b, strong {
+     color: red;
+  }
+  h1,h2,h3,h4,h5 {
+     color:unset!important;
+  }
+  .hljs {
+     font-size:105%;
+  }
+  </style>
+
+</head>
+<body>
+    <div class="reveal">
+      <div style='position:absolute;left:10px;top:10px;font-size:8pt;color:transparent;'>https://layout.xbdev.net</div>
+      <div class="slides" style='border:0px solid orange;'>
+		<!--
+        <section data-background-color="rgb(70, 70, 255)"><h2>Welcome</h2></section>
+		<section style="height:720px; background-color:rgb(70, 70, 255);"><h2>How are you?</h2></section>
+		-->
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="linear-gradient(90deg, rgba(0,0,0,0.8), rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%),url('https://images.pexels.com/photos/311268/pexels-photo-311268.jpeg\?auto=compress&cs=tinysrgb&h=650&w=940') 100% 100%/cover" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+<!--{border:0px solid orange}-->
+
+<!--{background:https://images.pexels.com/photos/311268/pexels-photo-311268.jpeg?auto=compress&cs=tinysrgb&h=650&w=940}-->
+<!--{gradient:90deg, rgba(0,0,0,0.8), rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%}-->
+
+<div style='text-shadow: -2px -2px 0 #000;'>
+
+# **D3 Data Methods** 
+## Review
+
+* D3 Data Helpers
+* Revision Examples 
+* Summary
+
+</div>
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Note
+
+Refer to the **official documentation and support resources** for examples and comprehensive information about 
+the specific D3 functions, structures and usage
+
+* [D3 Homepage](https://d3js.org/)
+* [D3 API Reference](https://devdocs.io/d3~7/)
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+### Computing basic **summary statistics**
+
+<div style='font-size:50%;column-count:2;'>
+
+<div>
+
+* **d3.min/max** - compute the min/max value in an iterable.
+* **d3.minIndex/maxIndex** - compute the index of the min/max value in an iterable.
+* **d3.extent** - compute the minimum and maximum value in an iterable.
+* **d3.sum** - compute the sum of an iterable of numbers.
+* **d3.mean** - compute the arithmetic mean of an iterable of numbers.
+* **d3.median** - compute the median of an iterable of numbers (the 0.5-quantile).
+* **d3.medianIndex** - compute the median index of an iterable of numbers (the 0.5-quantile).
+* **d3.mode** - compute the mode (the most common value) of an iterable of numbers.
+* **d3.cumsum** - compute the cumulative sum of an iterable.
+* **d3.rank** - compute the rank order of an iterable.
+
+</div>
+
+<div>
+
+* **d3.quantile** - compute a quantile for an iterable of numbers.
+* **d3.quantileIndex** - compute a quantile index for an iterable of numbers.
+* **d3.quantileSorted** - compute a quantile for a sorted array of numbers.
+* **d3.variance** - compute the variance of an iterable of numbers.
+* **d3.deviation** - compute the standard deviation of an iterable of numbers.
+* **d3.fcumsum** - compute a full precision cumulative summation of numbers.
+* **d3.fsum** - compute a full precision summation of an iterable of numbers.
+* **d3.blur** - blur an array of numbers in place.
+* **d3.blur2** - blur a two-dimensional array of numbers in place.
+* **d3.blurImage** - blur an RGBA ImageData in place.
+
+</div>
+
+</div>
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+What is the console output for the following code:
+
+```
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+let arr = [20, 3, 5, 12];
+let r = d3.mode( arr );
+console.log('mode:', r );
+</script>
+```
+
+* a) 'mode: 10'
+* b) 'mode: 20'
+* c) 'mode: 12'
+* d) 'mode: 13.2'
+* e) 'mode: 0'
+
+---
+
+## Answer
+
+Answer: **a) 'mode: 10'**
+
+
+> ```d3.mode``` - compute the mode (the most common value) of an iterable of numbers.
+
+Further details: [Details](https://github.com/d3/d3-array/blob/main/README.md#mode), [Examples](https://observablehq.com/@d3/d3-mode)
+
+D3 mode of the given iterable, i.e. the value which appears the most often. **Case of equality, returns the first of the relevant values**
+
+
+
+
+
+
+
+
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+
+## **Searching** arrays for a specific element
+
+<div style='font-size:60%;column-count:2;'>
+<div>
+
+* **d3.least** - returns the least element of an iterable.
+* **d3.leastIndex** - returns the index of the least element of an iterable.
+* **d3.greatest** - returns the greatest element of an iterable.
+* **d3.greatestIndex** - returns the index of the greatest element of an iterable.
+* **d3.bisectCenter** - binary search for a value in a sorted array.
+* **d3.bisectLeft** - binary search for a value in a sorted array.
+* **d3.bisect** - binary search for a value in a sorted array.
+* **d3.bisectRight** - binary search for a value in a sorted array.
+
+</div>
+<div>
+
+* **d3.bisector** - bisect using an accessor or comparator.
+* **bisector.center** - binary search for a value in a sorted array.
+* **bisector.left** - bisectLeft, with the given comparator.
+* **bisector.right** - bisectRight, with the given comparator.
+* **d3.quickselect** - reorder an array of numbers.
+* **d3.ascending** - compute the natural order of two values.
+* **d3.descending** - compute the natural order of two values.
+
+</div>
+</div>
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Exercise
+
+What is the console output for the following example (and why?):
+
+```
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+let arr = [ { a:8, b:23},
+            { a:20, b:3}, 
+            { a:5, b:12} ];
+let r = d3.greatest( arr, d=>d.a );
+console.log( r.b );
+</script>
+```
+
+* a) 3
+* b) 20
+* c) 12
+* d) 23
+* e) 0
+
+
+---
+
+
+## Answer
+
+Answer: **a) 3**
+
+> Greatest object using 'a', i.e. '{a:20,b:3}', the 'b' value is written to the output (i.e., 'r.b').
+
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+### **transforming** and generating new arrays
+
+<div style='font-size:60%;column-count:2;'>
+<div>
+
+* **d3.flatGroup** - group an iterable into a flat array.
+* **d3.flatRollup** - reduce an iterable into a flat array.
+* **d3.group** - group an iterable into a nested Map.
+* **d3.groups** - group an iterable into a nested array.
+* **d3.groupSort** - sort keys according to grouped values.
+* **d3.index** - index an iterable into a nested Map.
+* **d3.indexes** - index an iterable into a nested array.
+* **d3.rollup** - reduce an iterable into a nested Map.
+* **d3.rollups** - reduce an iterable into a nested array.
+* **d3.count** - count valid number values in an iterable.
+* **d3.cross** - compute the Cartesian product of two iterables.
+* **d3.merge** - merge multiple iterables into one array.
+* **d3.pairs** - create an array of adjacent pairs of elements.
+
+</div>
+<div>
+
+* **d3.permute** - reorder an iterable of elements according to an iterable of indexes.
+* **d3.shuffle** - randomize the order of an iterable.
+* **d3.shuffler** - randomize the order of an iterable.
+* **d3.ticks** - generate representative values from a numeric interval.
+* **d3.tickIncrement** - generate representative values from a numeric interval.
+* **d3.tickStep** - generate representative values from a numeric interval.
+* **d3.nice** - extend an interval to align with ticks.
+* **d3.range** - generate a range of numeric values.
+* **d3.transpose** - transpose an array of arrays.
+* **d3.zip** - transpose a variable number of arrays.
+
+<div style='font-size:60%;column-count:2;'>
+<div>
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+What is the console output for the following code:
+
+```
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+let arr = [ { a:8, b:23},
+            { a:4, b:3 }, 
+            { a:2, b:12} ];
+let r = d3.index( arr, d=>{return d.a; } );
+console.log( r.get( 2 ).b );
+</script>
+```
+
+* a) 23
+* b) 3
+* c) 4
+* d) 2
+* e) 12
+
+---
+
+## Answer
+
+Answer **e) 12**
+
+> Sorts the data using the 'a' value as the 'lookup' index.  Select the item which has an 'a' value of '2'.  We then grab the contents of the 'b' element (which is also 12).
+
+
+> Convert and view result using `console.log( Array.from(r)  );` for debugging/learning.
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+### Iterables
+
+* **d3.every** - test if all values satisfy a condition.
+* **d3.some** - test if any value satisfies a condition.
+* **d3.filter** - filter values.
+* **d3.map** - map values.
+* **d3.reduce** - reduce values.
+* **d3.reverse** - reverse the order of values.
+* **d3.sort** - sort values.
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Questions
+
+What is the console output for the following code:
+
+```
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+let arr = [ { a:8, b:3 },
+            { a:4, b:3 }, 
+            { a:3, b:12} ];
+let r = d3.filter( arr, d=>{return d.b==3; } );
+console.log( r[0].a );
+</script>
+```
+
+* a) 3
+* b) 8
+* c) 2
+* d) 12
+* e) 0
+
+---
+
+## Answer
+
+Answer: **b) 8**
+
+> Filters the array and 'keeps' all array elements which have a 'b' element equal to '3'.  Then selects the 0th element and outputs the value for the 'a' component. 
+
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+### Sets
+
+* **d3.difference** - compute a set difference.
+* **d3.disjoint** - test whether two sets are disjoint.
+* **d3.intersection** - compute a set intersection.
+* **d3.superset** - test whether a set is a superset of another.
+* **d3.subset** - test whether a set is a subset of another.
+* **d3.union** - compute a set union.
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+
+## Revision Question
+
+What is the console output for the following code:
+
+```
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+let aa = [ 1 , 5, 10 ];
+let ab = [ 10, 2, 5  ];
+let r = d3.union( aa, ab ); // A ∪ B
+</script>
+```
+
+* a) [1,10,2,3]
+* b) [11,7,15]
+* c) [1,5,10,2,3]
+* d) [31]
+* e) [1,5,10,2]
+
+---
+
+## Answer
+
+Answer: **e) [1,5,10,2]**
+
+> Returns a **new** InternSet containing every (distinct) value that appears in any of the given iterables. The order of values in the returned set is **based on their first occurrence in the given iterables**.
+
+> Useful when developing visualisations such as Venn diagrams.
+
+Further information on Set Operations [LINK](https://observablehq.com/@d3/set-operations)
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+
+## Summary
+
+* Working with raw data
+  * Calculations, Transforming, Grouping, Sorting, Filtering, ...
+* Taking advantage of helper methods
+  * Avoid re-inventing the wheel
+  * **Understand** how the wheel works
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</textarea>
+</section>
+        
+      </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/highlight.min.js"></script>
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/math/math.min.js"></script>
+<!--
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/math/katex.min.js"></script>
+-->
+
+    <script>
+    window.addEventListener('load', function() {
+      console.log('setting up reveal');
+	  //window.history.pushState(null, null, '?print-pdf');
+
+      Reveal.initialize( { width: 1240,
+  						   height: 720,
+						   controls: true,
+						   progress: true,
+						   center: true,
+						   hash: true,
+                           transition: 'fade', // none/fade/slide/convex/concave/zoom
+						   controlsTutorial: true,
+                           plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX  ]
+                         } );
+    });
+    </script>
+</body>
+</html>
+	
