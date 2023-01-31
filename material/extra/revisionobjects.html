@@ -1,0 +1,456 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <script>
+	window.history.replaceState = function(){ };
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/serif.min.css" id="theme">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/white.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/zenburn.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/monokai.min.css">
+  
+<!--
+  <link rel="stylesheet" href="https://layout.xbdev.net/var/images/pdf.css">
+-->
+  <style>
+  b, strong {
+     color: red;
+  }
+  h1,h2,h3,h4,h5 {
+     color:unset!important;
+  }
+  .hljs {
+     font-size:105%;
+  }
+  </style>
+
+</head>
+<body>
+    <div class="reveal">
+      <div style='position:absolute;left:10px;top:10px;font-size:8pt;color:transparent;'>https://layout.xbdev.net</div>
+      <div class="slides" style='border:0px solid orange;'>
+		<!--
+        <section data-background-color="rgb(70, 70, 255)"><h2>Welcome</h2></section>
+		<section style="height:720px; background-color:rgb(70, 70, 255);"><h2>How are you?</h2></section>
+		-->
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="linear-gradient(90deg, black, rgba(0,0,0,0.3) 100%),url('https://images.pexels.com/photos/4553261/pexels-photo-4553261.jpeg\?auto=compress&cs=tinysrgb&h=650&w=940') 100% 100%/cover" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+<!--{border:0px solid orange}-->
+<!--{background:https://images.pexels.com/photos/4553261/pexels-photo-4553261.jpeg?auto=compress&cs=tinysrgb&h=650&w=940}-->
+<!--{gradient:90deg, black, rgba(0,0,0,0.3) 100%}-->
+
+<div style='text-shadow: -2px -2px 0 #000;'>
+
+# **Scalable Visualizations** 
+## Tutorial **Notes**
+
+Q&A Examples
+
+</div>
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+
+## Revision Question
+
+Abstraction and Encapsulation are the same thing?
+
+* a) True
+* b) False
+
+---
+
+## Answer
+
+Answer: **b) False**
+
+* **Abstraction** – Concentrates on only the outside view, i.e. the interface
+* **Encapsulation** – Combining the data and actions of objects into a single item, i.e. a class
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+**Why** use Design Patterns?
+
+> Context of data visualizations solutions
+
+**Discuss** and explain why
+
+---
+
+## Answer
+
+The answer/solution should evolve around these **key points**:
+
+* Maximise **code reuse**
+* Minimise re-implementation
+* Increase cohesion
+* Reduce coupling
+* Patterns can increase complexity
+* Easier to Debug and extend
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+'Model ______ Presenter' (MVP) Pattern?
+
+* a) Verification
+* b) Visalization
+* c) View
+* d) Vue
+* e) Visitor
+
+---
+
+## Answer
+
+Answer **c) View**
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## What does an **object factory** in JS return?
+
+* a) array
+* b) function
+* c) object
+* e) array objects
+* f) class
+
+---
+
+## Answer
+
+Answer: **c) object**
+
+Details [Link](https://f21dv.github.io/material/lectures/Lecture%2004%20-%20Scalable%20Visualizations.html#/11)
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+What is the console output for the following code?
+
+<div style='font-size:90%'>
+
+```
+const Table = function( name, arr ) {
+    let obj     = {};
+    obj.arr     = arr || [];
+    obj.name    = name || "";
+    obj.details = function(){ return (obj.name + ',' + obj.arr ); };
+    return obj;
+};
+let t0 = Table('test',  [1,2]);
+let t1 = Table('check', [3,4]);
+console.log( t0.details() );
+```
+
+* a) "test,1,2"
+* b) "check,3,4"
+* c) "test"
+* d) undefined
+* e) "test,3,4"
+
+</div>
+
+---
+
+## Answer
+
+Answer: **"test,1,2"**
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+What will be the console output for the following code?
+
+<div style='font-size:85%'>
+
+```
+function Chart(name, data, color) {
+  let counter = 0;
+  let obj     = {
+    name : name,
+    data : data,
+    color: color || 'blue',
+    setdata:    function(d){ counter++; obj.data=d;     },
+    getdata:    function(d){ counter--; return obj.data;},
+    getcounter: function(d){ return counter;},
+  };
+  return obj;
+}
+let c0 = Chart('c0', [1,2], 'green' );
+c0.getdata();
+c0.getdata();
+console.log( c0.getcounter() );
+```
+
+* a) -2
+* b) 2
+* c) undefined
+* d) 0
+
+</div>
+
+---
+
+## Answer
+
+Answer: **a) -2**
+
+> Important if you try and **access the counter variable directly**, instead of using the accessor function 'getcounter()', e.g., c0.counter, you'll get undefined - as it's **private** (out of scope).
+
+
+---
+
+## Revision Question
+
+What is the console output for the following code?
+
+<div style='font-size:85%'>
+
+```
+class Chart
+{
+   #id = 3;
+   constructor(id) {  this.#id = id;  }
+   print()
+   {
+      console.log('base:', this.#id);
+   }
+}// end Class Chart
+let d1 = new Chart(1);
+d1.print();
+```
+
+* a) "base:",1
+* b) "base:",0
+* c) "base:",undefined
+* d) undefined
+* e) -1
+
+</div>
+
+---
+
+## Answer
+
+Answer: **a) "base:",1**
+
+> Important the **hash symbol** is to make elements **'private'** - if you try and access the value direction (d1.id) you'd get an error.
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Summary
+
+* Quick review (encapsulating functions/data)
+* Develop **reusable components**
+  * e.g., charts or graphics
+* Makes debugging/managing larger projects more manageable (i.e., scalable)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</textarea>
+</section>
+        
+      </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/highlight.min.js"></script>
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/math/math.min.js"></script>
+<!--
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/math/katex.min.js"></script>
+-->
+
+    <script>
+    window.addEventListener('load', function() {
+      console.log('setting up reveal');
+	  //window.history.pushState(null, null, '?print-pdf');
+
+      Reveal.initialize( { width: 1240,
+  						   height: 720,
+						   controls: true,
+						   progress: true,
+						   center: true,
+						   hash: true,
+                           transition: 'fade', // none/fade/slide/convex/concave/zoom
+						   controlsTutorial: true,
+                           plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX  ]
+                         } );
+    });
+    </script>
+</body>
+</html>
+	
