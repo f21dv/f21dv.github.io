@@ -1,0 +1,443 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <script>
+	window.history.replaceState = function(){ };
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/serif.min.css" id="theme">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/white.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/zenburn.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/monokai.min.css">
+  
+<!--
+  <link rel="stylesheet" href="https://layout.xbdev.net/var/images/pdf.css">
+-->
+  <style>
+  b, strong {
+     color: red;
+  }
+  h1,h2,h3,h4,h5 {
+     color:unset!important;
+  }
+  .hljs {
+     font-size:105%;
+  }
+  </style>
+
+</head>
+<body>
+    <div class="reveal">
+      <div style='position:absolute;left:10px;top:10px;font-size:8pt;color:transparent;'>https://layout.xbdev.net</div>
+      <div class="slides" style='border:0;'>
+		<!--
+        <section data-background-color="rgb(70, 70, 255)"><h2>Welcome</h2></section>
+		<section style="height:720px; background-color:rgb(70, 70, 255);"><h2>How are you?</h2></section>
+		-->
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="linear-gradient(90deg,black, black 10%, rgba(0,0,0,0.2) 100% ),url('https://images.pexels.com/photos/7577917/pexels-photo-7577917.jpeg\?auto=compress&cs=tinysrgb&h=650&w=940') 100% 100%/cover" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+					
+## Revision Question
+<!--{background:https://images.pexels.com/photos/7577917/pexels-photo-7577917.jpeg?auto=compress&cs=tinysrgb&h=650&w=940}-->
+<!--{gradient:90deg,black, black 10%, rgba(0,0,0,0.2) 100% }-->
+
+# D3 Transitions Q&A
+Coding Examples
+	
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Overview
+
+* Using D3 (Basics)
+* Simplified Code Examples
+* Q&A Style
+* Discussion
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+What does the following snippet do?
+
+```
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+d3.select("body")
+  .append("h1")
+  .text("Hello")
+  .style("color", "#00ff00")
+  .style("font-size", "100px")
+</script>
+```
+
+* a) red text saying 'Hello' on screen
+* b) black text saying 'h1' on screen
+* c) green text saying 'Hello' on screen
+* d) blue text saying 'Hello' on screen
+* d) black text saying 'Hello' on screen
+
+---
+
+## Answer
+
+Answer: **c) green text saying 'Hello' on screen**
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+What is the chaining method for transitioning the text color from blue to green over 1 second?
+
+<div style='font-size:90%'>
+
+```
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+d3.select("body")
+ .append("h1").text("Hello")
+ .style("color", "blue")
+ ____________________;
+</script>
+```
+
+* a) ```.transition().duration(1).style("color", "green")```
+* b) ```.transition("color", "1000")```
+* c) ```.duration(1000).transition().style("color", "green")```
+* d) ```.transition().duration(1000).style("color", "green")```
+* e) ```.transition().duration(1000).attr("color", "green")```
+
+</div>
+
+---
+
+## Answer
+
+Answer: **d) ```.transition().duration(1000).style("color", "green")```**
+
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Revision Question
+
+What does the following code sample do?
+
+```
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+d3.select("body")
+ .append("h1")
+ .text("Hello")
+ .style("text-align", "center")
+ .style("font-size", "100px")
+ .transition()
+ .duration(1500)
+ .style("transform", "rotate(-180deg) scale(0.001, 0.001)")
+</script>
+```
+
+* a) Text rotates in and gets larger
+* b) Text rotates out and gets smaller
+* c) Text does nothing (sits middle of the screen)
+* d) Text keeps spinning on the spot
+
+---
+
+## Answer
+
+Answer: **b) Text rotates out and gets smaller**
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+### Revision Question (Piping Transitions)
+
+What does the following code snippet do?
+
+<div style='font-size:90%'>
+
+```
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+d3.select("body")
+ .append("h1").text("Hello")
+ .style("text-align", "center")
+ .style("font-size", "100px")
+ .style("transform", "rotate(-180deg) scale(0.001, 0.001)")
+ .transition()
+ .duration(1500)
+ .style("transform", "rotate(0deg)")
+ .transition()
+ .duration(1000)
+ .style("transform", "rotate(-180deg) scale(0.001, 0.001)")
+</script>
+```
+
+</div>
+
+* a) Rotates and scales in, then goes back out
+* b) Rotates and scales out, then comes back in
+* c) Rotates on the spot
+
+---
+
+## Answer
+
+Answer: **a) Rotates and scales in, then goes back out**
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+<div style='font-size:85%;'>
+
+## Revision Question (Delays)
+
+What does the following snippet do?
+
+
+
+```
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+d3.select("body")
+ .append("h1").text("Hello")
+ .style("text-align", "center")
+ .style("font-size", "100px")
+ .style("transform", "rotate(-180deg) scale(0.001, 0.001)")
+ .transition()
+ .duration(1000)
+ .style("transform", "rotate(0deg)")
+ .transition()
+ .delay(2000)
+ .transition()
+ .duration(1000)
+ .style("transform", "rotate(-180deg) scale(0.001, 0.001)")
+</script>
+```
+
+* a) rotates and scales in, then pauses for 2 seconds, then rotates and scales out
+* b) pauses for 2 seconds, then rotates in and then out
+* c) rotates in then out and finally pauses for 2 seconds
+
+</div>
+
+---
+
+## Answer
+
+
+Answer: **a) rotates and scales in, then pauses for 2 seconds, then rotates and scales out**
+
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+
+## Summary
+
+* Working with **transitions** (```transition``` method)
+* `on()' method (start/end) - event callbacks
+* Data visualizations change smoothly
+* Further reading [link](https://d3-graph-gallery.com/graph/interactivity_transition.html)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</textarea>
+</section>
+        
+      </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/highlight.min.js"></script>
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/math/math.min.js"></script>
+<!--
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/math/katex.min.js"></script>
+-->
+
+    <script>
+    window.addEventListener('load', function() {
+      console.log('setting up reveal');
+	  //window.history.pushState(null, null, '?print-pdf');
+
+      Reveal.initialize( { width: 1240,
+  						   height: 720,
+						   controls: true,
+						   progress: true,
+						   center: true,
+						   hash: true,
+                           transition: 'fade', // none/fade/slide/convex/concave/zoom
+						   controlsTutorial: true,
+                           plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX  ]
+                         } );
+    });
+    </script>
+</body>
+</html>
+	
