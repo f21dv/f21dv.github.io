@@ -71,7 +71,7 @@ Note
 <div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
-<div class="slides" style='border:3px solid orange;'>
+<div class="slides" style='border:0px solid orange;'>
 
 <!-- ------------------------------------------------------------- -->
 
@@ -467,15 +467,30 @@ d3.selection.on(type[, listener[, capture]]);
 </aside>
 </textarea>
 </section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown>
+	<textarea data-template>
+	### Try this Week
+	
+	* Link multiple graphics together with **events**
+	* Events to add/remove styles (highlight/show extra information)
+	
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
 	
 <!-- ------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------- -->
 
-<section data-markdown style="text-align: left;">
+<section data-markdown>
 	<textarea data-template>
 	### `d3.pie()`
 
-	* `d3.pie()` function takes in a dataset and creates handy data for us to generate a pie chart in the SVG
+	* **`d3.pie()`** function takes in a dataset and creates handy data for us to generate a **pie chart** in the SVG
 	* calculates the start angle and end angle for each wedge of the pie chart
 	
 	Consider the following: 
@@ -487,6 +502,9 @@ var pie = d3.pie();
 console.log( pie(data) );
 </script>
 	```
+	
+<small>Examine the console output - what does return information from pie(data) mean?</small>
+	
 <aside class='notes'>
 </aside>
 	</textarea>
@@ -522,9 +540,12 @@ console.log( pie(data) );
 	<textarea data-template>
 	## `d3.arc()`
 
-	* `d3.arc()` generates the arcs (wedges)
+	* `d3.arc()` generates the arcs (**wedges**)
 	* Arcs need an inner radius and outer radius
-	  * (if the inner radius isn't 0, you'll create 'donuts')
+	  * If the inner radius isn't 0, you'll create **'donuts'**
+	  * Multiple rings
+	  
+	> Further Details [Link](http://using-d3js.com/05_07_arcs_pie_charts.html)
 <aside class='notes'>
 </aside>
 	</textarea>
@@ -536,7 +557,8 @@ console.log( pie(data) );
 	<textarea data-template>
 	### Minimum Working Example (MWE) D3 PIE
 
-<pre><code class='stretch'> < !DOCTYPE HTML>
+
+<pre><code style='min-height:550px; font-size:90%;line-height:1;'>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <svg viewBox="-25 -25 100 100">
 <script>
@@ -561,7 +583,8 @@ arcs.append("path")  //Draw arc paths
 </script>
 </code></pre>
 
-Try running the example above ...
+Run the example above ...
+(Try and change the segment colors)
 
 <aside class='notes'>
 </aside>
@@ -666,6 +689,8 @@ arcs.append("path")  //Draw arc paths
 </code></pre>
 
 Test the above example - see the output (generated chart)
+
+<small> (Try encapsulating the example and output 'multiple' donuts/rings) </small>
 <aside class='notes'>
 </aside>
 	</textarea>
@@ -677,6 +702,7 @@ Test the above example - see the output (generated chart)
 	<textarea data-template>
 	## Summary
 
+	* Events (responsive designs/animations/transitions)
 	* D3 isn't limited to simple **bar charts**
 	* Easily extended to represent complex models/shapes/layouts
 	* Able to accommodate flexible data formats
@@ -693,6 +719,7 @@ Test the above example - see the output (generated chart)
 	## To do this week ...
 
 	* Read over the lectures 
+	* Try examples and **extend** them (features)
 	* **Review** the revision questions 
 	* Work through tutorial practicals 
 	* Experiment (get into good habits) 
