@@ -1,3 +1,30 @@
+<!--
+      _       _                _                 _ _          _   _             
+     | |     | |              (_)               | (_)        | | (_)            
+   __| | __ _| |_ __ _  __   ___ ___ _   _  __ _| |_ ______ _| |_ _  ___  _ __  
+  / _` |/ _` | __/ _` | \ \ / / / __| | | |/ _` | | |_  / _` | __| |/ _ \| '_ \ 
+ | (_| | (_| | || (_| |  \ V /| \__ \ |_| | (_| | | |/ / (_| | |_| | (_) | | | |
+  \__,_|\__,_|\__\__,_|   \_/ |_|___/\__,_|\__,_|_|_/___\__,_|\__|_|\___/|_| |_|
+                 | |                                                            
+   __ _ _ __   __| |                                                            
+  / _` | '_ \ / _` |_       _   _                                               
+ | (_| | | | | (_| | |     | | (_)                                              
+  \__,_|_|_|_|\__,_| |_   _| |_ _  ___ ___                                      
+  / _` | '_ \ / _` | | | | | __| |/ __/ __|                                     
+ | (_| | | | | (_| | | |_| | |_| | (__\__ \                                     
+  \__,_|_| |_|\__,_|_|\__, |\__|_|\___|___/                                     
+                       __/ |                                                    
+                      |___/                                                     
+					  
+f21dv.github.io 
+2021-2023
+(Material first develop/created in 2021)
+Note
+* Continuously updating to align with latest versions/technologies 
+* Primarily uses US spelling to avoid confusion between multiple sources/API naming conventions (d3.color/color - API/reference material vs 'colour')
+
+-->
+
 <!doctype html>
 <html lang="en">
 
@@ -44,7 +71,7 @@
 <div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
-<div class="slides">
+<div class="slides" style='border:3px solid orange;'>
 
 <!-- ------------------------------------------------------------- -->
 
@@ -62,21 +89,23 @@
 
 <!-- ------------------------------------------------------------- -->
 
+<!--
 <section data-background-video="./images/intro4.mp4">
 <aside class='notes'>
 </aside>
 </section>
+-->
 
 <!-- ------------------------------------------------------------- -->
 
-<section data-markdown style="text-align: left;">
+<section data-markdown>
 	<textarea data-template>
 		## Overview
 
-		* Why use Charts
+		* Why use Charts?
 		* **Chart** Types
 		* D3 & Graphics
-		* **Events**
+		* **Events** (Interacting with Visuals)
 		* Example Pie Chart 
 		* Questions & Discussion
 		
@@ -142,6 +171,8 @@
 
 ## **Why** do we use data charts?
 
+> Discuss why we like charts so much
+
 </textarea>
 </section>
 <section data-markdown 
@@ -156,8 +187,7 @@
 
 ## **Why** do we use data charts?
 * Text not adequate to describe Data
-  * Large
-  * Complex
+  * Large and Complex
 * Charts are often used to ease **understanding**
 * Comprehend large quantities of data
 * See **patterns and relationships** between (all or) parts of the data
@@ -170,18 +200,43 @@
 </section>
 
 <!-- ------------------------------------------------------------- -->
-<section data-markdown style="text-align: left;">
+
+<section>
+<section data-markdown>
 	<textarea data-template>
-	### Basic Requirement
-Chart should be **clear** and **readable**
+	### What is a Basic Requirement for all Charts?
+
+	> All charts should have this core requirement
 		
 <aside class='notes'>
 </aside>
 	</textarea>
 </section>	
 
+
+
+<section data-markdown>
+	<textarea data-template>
+	#### What is a Basic Requirement for all Charts?
+	
+	<div style='font-size:180%;'>
+	
+Chart should be **clear** and **readable**
+	
+	</div>
+	
+	> Discuss: How to make a chart clear and readable? 
+	
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>	
+</section>
+
 <!-- ------------------------------------------------------------- -->
-<section data-markdown style="text-align: left;">
+
+<section>
+<section data-markdown>
 	<textarea data-template>
 	
 ## Which type of **chart** do you use for which data?
@@ -192,12 +247,38 @@ Chart should be **clear** and **readable**
 * **Which** chart do you use for which results?
 * How do you **decide** this?
 
-Depends on **what** you are trying to visualise
 		
 <aside class='notes'>
 </aside>
 	</textarea>
 </section>
+
+<section data-markdown>
+	<textarea data-template>
+
+<div style='float:left;width:50%;'>
+	
+### Which type of **chart** do you use for which data?
+
+* Important to remember not all charts are the same!
+* Depends on **what** you are trying to visualise (communicate)
+
+</div>
+<div style='float:right;width:50%;'>
+<img style='box-shadow:none;border:0;' width='100%' src='
+http://dangets.files.wordpress.com/2012/01/vis_lotto.png'>
+
+<small><a href='https://cs.colby.edu/courses/S14/cs251/goodbad.php'>Good and Bad Examples</a></small>
+</div>	
+	
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+</section>
+
+
 <!-- ------------------------------------------------------------- -->	
 
 <section>
@@ -212,16 +293,16 @@ Depends on **what** you are trying to visualise
 <textarea data-template>
 
 
-## How to select a chart
+## **How** to select a chart
 
 <!--{color:white}-->
 
-* Type of data being visualised
+* **Type of data** being visualised
   * Numerical
   * Non-numerical
   * Time series
   *  Geospatial
-* What is being visualised
+* **What** is being **visualised**
   * Comparison
   * Relationship
   * Composition
@@ -253,7 +334,7 @@ Depends on **what** you are trying to visualise
 
 
 <!-- ------------------------------------------------------------- -->	
-<section data-markdown style="text-align: left;">
+<section data-markdown>
 	<textarea data-template>
 	### D3 and Graphics
 * D3 is a JS library for manipulating the DOM
@@ -308,6 +389,49 @@ d3.selection.on(type[, listener[, capture]]);
 </textarea>
 </section>
 	
+	
+<!-- ------------------------------------------------------------- -->
+
+<section>
+	<section data-markdown data-transition="slide" data-background="#20533c" data-background-transition="zoom">
+		<textarea data-template>
+		## Revision Question
+		What is the **D3 method** for adding/removing **event listeners** to objects (e.g., move mouse over rectangles or text)
+		
+		* A: `selection.click()`
+		* B: `selection.event()`
+		* C: `selection.on()`
+		* D: `event.selection()`
+		* E: `event.listener()`
+<aside class='notes'>
+</aside>
+		</textarea>
+	</section>
+	
+	<section data-markdown data-transition="slide" data-background="#20533c" data-background-transition="zoom">
+		<textarea data-template>
+		## Answer
+		
+		* Answer **C: `selection.on()`**
+		
+		---
+		
+		<div style='font-size:90%;'>
+		
+		* **selection.on()**  	    Add or remove event listeners to capture event types like click, mouseover, mouseout etc.
+		
+		</div>
+		
+<aside class='notes'>
+</aside>
+		</textarea>
+	</section>
+</section>				
+
+<!-- ------------------------------------------------------------- -->
+
+
+	
 <!-- ------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------- -->
 
@@ -316,7 +440,7 @@ d3.selection.on(type[, listener[, capture]]);
 <textarea data-template>
 #### D3 Event Example
 	
-```js
+<pre><code style='min-height:650px;word-wrap: break-word;white-space: pre-wrap;'>
 <script>
     d3.select('body')
       .append('div')
@@ -337,7 +461,7 @@ d3.selection.on(type[, listener[, capture]]);
           d3.select(this).style("background-color", "steelblue")
       });
 </script>
-```
+</code></pre>
 	
 <aside class='notes'>
 </aside>
