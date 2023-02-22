@@ -1,0 +1,352 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Notes (Layout.xbdev.net)</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.3/showdown.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
+
+<style>
+* {
+    -webkit-print-color-adjust: exact !important;   /* Chrome, Safari 6 – 15.3, Edge */
+    color-adjust: exact !important;                 /* Firefox 48 – 96 */
+    print-color-adjust: exact !important;           /* Firefox 97+, Safari 15.4+ */
+    word-wrap: break-word;
+}
+
+table { word-break:break-all !important; }
+
+html {
+    background: #CCC;
+    padding-bottom: 100vh; /* allow scrolling past end of page */
+}
+
+.background5 {
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    width:800px;
+    height:800px;
+    background: url("https://cdn.icon-icons.com/icons2/3159/PNG/512/paper_texture_background_cardboard_pattern_icon_193289.png");
+	background-position: right 0pt top 0pt;
+	background-repeat: no-repeat;
+	background-size: contain;	
+	opacity:0.05;
+	z-index:1;
+}
+
+.mdcontent {
+	text-align:left;
+    position:relative;
+    background: #FFF;
+    font-family: "Open Sans";
+    line-height: 1.4;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 100px;
+    min-height: calc(100vh - 240px);
+    box-shadow: 0 0 10px;
+	background-color:#fff;
+	color: black;
+
+}
+
+.mdcontent::before {    
+      content: "";
+      background: url("https://cdn.icon-icons.com/icons2/3159/PNG/512/paper_texture_background_cardboard_pattern_icon_193289.png");
+	  background-position: right -50pt top 50pt;
+	  background-repeat: no-repeat;
+	  background-size: contain;	
+	  background-color:#fff;
+      opacity: 0.02;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+	  z-index:0;
+	  pointer-events: none;
+}
+
+
+
+a {
+    color: #4183C4;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 40px;
+}
+
+h1, h2, h3 {
+    font-variant: small-caps;
+    font-weight: 800;
+}
+
+li > ul {
+    padding-left: 20;
+}
+p + ul {
+    margin-top: -10;
+}
+li > p {
+    margin-top: 0;
+    margin-bottom: 10;
+}
+
+blockquote {
+  border-left: 8px solid rgba(100,100,100,0.5);
+  padding-left: 5px;
+}
+
+code {
+    font-family: Consolas, "Lucida Console", Monaco, monospace;
+    font-size: 85%;
+    line-height: 150%;
+    background: #f8f8f8;
+    border-radius: 3px;
+    border: 1px solid #e6e8db;
+    padding: 1px 3px 1px 3px;
+	border: 4px solid blue;
+}
+
+pre code {
+	border: 4px solid green;
+	display:block;
+	white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+hr { 
+    background-color: #fff;
+    border: 0;
+    border-top: 2px dashed #8c8b8b;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 5px;
+}
+tr:hover {background-color: #f5f5f5;}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+th {
+  background-color: #4C50AF;
+  color: white;
+}
+
+table {
+    margin-left:auto; 
+    margin-right:auto;
+}
+</style>
+
+<style>
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+</style>
+
+</head>
+<body>
+
+<div id='mdcontainer' style='text-align:center;'>
+</div>
+  
+<br><br>
+
+<textarea id='rawmd' style='display:none;'>
+
+
+<div style='box-sizing: border-box; position:absolute;left:0px;top:0px;width:100%;height:400px;border:0px solid green;background:url(https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/69454/gcs_main_1-960.jpg) center/cover no-repeat;'></div>
+
+<img style='position:absolute; left:50px; top: 160px;' width='300px'src='https://icon-icons.com/downloadimage.php?id=161204&root=2663/SVG/&file=market_research_analytics_chart_analysis_icon_161204.svg'>
+
+<div style='height:400px;'></div>
+
+# Future Landscape of Data Visualization
+
+
+* Data visualization is an important and challenging topic that engages a broad community from diverse backgrounds.
+* One thing is constant, and that is data will continue increased rapidly in volume and complexity. As these data stores continue to explode, analysts will find themselves faced with the **growing challenge** of making things **understandable**. Storytelling will likewise continue to seep into the fabric of these communications. One thing is sure, the data visualization landscape will evolve to meet these challenges. 
+
+
+Examples of large datasets:
+* Biological genome data
+* Geographical images
+* Entertainment content
+* Simulations (weather, wind, fluids, ...)
+* Physicists (molecules/atoms, ..)
+* ...
+
+
+## Grand Challenges around Data Visualization
+
+Data visualization is the practice of translating **information into a visual context**, such as a graph or 3d models, to make data easier for the **human brain to understand** and pull insights from. The main goal of data visualization is to make it easier to identify patterns, trends and outliers in large data sets.
+
+> Visualization aims to amplify human intelligence
+
+
+:::info
+The audiences for visualizations vary greatly. Important to remember, visualization is a multidisciplinary subject - with applications from biology through to social media and the news.
+:::
+
+Recent surveys have identified unmet requirements for visualization systems in AI and Data Science [1,2,3,4], leading to **open challenges** where there is significant scope for **new research and innovation**. We expand on these to suggest the following Grand
+Challenges for visualization research:
+
+1. A **visual language** (for controlling and managing visualizations).
+1. Optimising narrative approaches to presenting data stories for comprehension and decision making.
+2. Expand the theoretical base for visualization linked to the empirical evidence from experiments.
+6. Recommendations to leverage new types of **display hardware** for everyday engagement with data and models (e.g., eXtended Reality/XR).
+7. Improved **user interaction** with data sets, models and model outcomes to support cognition (e.g., brain interfaces/haptics).
+8. Scalable visualization methods allowing interrogation at multiple spatial, temporal and security levels.
+9. Examine and prepare data and data collections, e.g. identify missing data, represent data quality.
+10. Represent uncertainty visually to communicate data limitations transparently and support decision makers.
+11. Rigorous experimental methodologies to show the effects of visualization in controlled and applied settings.
+12. Encourage deep interdisciplinary links across all areas of endeavour underpinning the field including ethics.
+
+Many of these challenges come from the scale and speed of automation and matching that to the bounds of **human comprehension**, something that is a **constantly moving target**.
+
+
+> Computer graphics will play a vital part in the future of data visualization; as a step in creating a new visual language that will enhance how we explore, describe, and communicate.
+
+
+~~~
+
+
+# References
+
+1. O'Donoghue, Seán I. "Grand challenges in bioinformatics data visualization." Frontiers in Bioinformatics 1 (2021): 669186.
+2. Von Landesberger, Tatiana, Dieter W. Fellner, and Roy A. Ruddle. "Visualization system requirements for data processing pipeline design and optimization." IEEE Transactions on Visualization and Computer Graphics 23.8 (2016): 2028-2041.
+3. Sacha, D., Kraus, M., Keim, D.A. and Chen, M., 2018. Vis4ml: An ontology for visual analytics assisted machine learning. IEEE transactions on visualization and computer graphics, 25(1), pp.385-395.
+4. Hohman F, Kahng M, Pienta R, Chau DH. Visual analytics in deep learning: An interrogative survey for the next frontiers. IEEE transactions on visualization and computer graphics. 2018 Jun 4;25(8):2674-93.
+5. Evolution of the Data Visualization Timeline (Accessed online: 12/02/2023). https://chartio.com/blog/the-evolution-of-data-visualization/
+6. Data Visualization Timeline. (Accessed online: 11/02/2023). https://cdn.ttgtmedia.com/rms/onlineImages/ba-data_visualization_timeline-f.png
+
+
+
+
+
+
+
+
+
+
+
+
+</textarea>
+
+<script>
+
+function extraMarkdown(txt)
+{
+	// bold words
+	//txt = txt.replaceAll( /\*\*([a-zA-Z0-9 ]*)\*\* /ig, `<b>$1</b> ` );
+	// italic words
+	//txt = txt.replaceAll( /\*(.*?)\* /ig, `<i>$1</i> ` );
+
+	let re = /(:::)(.*)\n((.|\n)*?)\n(:::)\n/ig;
+	txt = txt.replaceAll( re, `<div markdown=1 class='alert alert-$2'>$3<div style="clear: both;"></div></div>` );
+
+	return txt;
+}
+
+
+window.addEventListener('load', function() {
+
+	// html - add attribute 'markdown=1'
+
+	let converter = new showdown.Converter( { 
+                                            tables: 'true', 
+                                            disableForced4SpacesIndentedSublists: 'true', 
+                                            simpleLineBreaks: 'true',
+                                            strikethrough: 'true',
+                                            tasklists: true,
+                                            requireSpaceBeforeHeadingText: true }  );
+    converter.setFlavor('github');
+
+	let rawmd = document.getElementById('rawmd').value;
+
+    //console.log('rawmd:', rawmd );
+
+	let pages = rawmd.split("\n~~~");
+	
+	let res = '';
+	pages.forEach( (p,i )=>{
+		p = extraMarkdown( p );
+
+		p = converter.makeHtml( p );		
+
+		res += "<div id='page"+i+"' class='mdcontent'>"+p+"</div>";
+	});
+	
+	document.getElementById('mdcontainer').innerHTML = res;
+
+
+	/*
+	let els = document.getElementsByClassName('mdcontent');
+	els = [...els];
+	els.forEach( (el)=>{
+		el.innerHTML = converter.makeHtml( el.textContent );
+	});
+	*/
+
+	hljs.initHighlightingOnLoad();
+
+	
+	
+	let oldhash = window.location.hash;
+	let newhash = oldhash.replace('#', '');
+	console.log('--> old: ', oldhash, ' new:', newhash );
+	
+	window.location.hash = '';
+	window.location.hash = newhash;
+});
+</script>
+</body>
+</html>
