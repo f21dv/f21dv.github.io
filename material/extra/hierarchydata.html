@@ -1,0 +1,313 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <script>
+	window.history.replaceState = function(){ };
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/serif.min.css" id="theme">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/white.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/zenburn.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/monokai.min.css">
+  
+<!--
+  <link rel="stylesheet" href="https://layout.xbdev.net/var/images/pdf.css">
+-->
+  <style>
+  b, strong {
+     color: red;
+  }
+  h1,h2,h3,h4,h5 {
+     color:unset!important;
+  }
+  .hljs {
+     font-size:105%;
+  }
+  </style>
+
+</head>
+<body>
+    <div class="reveal">
+      <div style='position:absolute;left:10px;top:10px;font-size:8pt;color:transparent;'>https://layout.xbdev.net</div>
+      <div class="slides" style='border:0;'>
+		<!--
+        <section data-background-color="rgb(70, 70, 255)"><h2>Welcome</h2></section>
+		<section style="height:720px; background-color:rgb(70, 70, 255);"><h2>How are you?</h2></section>
+		-->
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="linear-gradient(180deg, rgba(0,0,0,0), black 50%, rgba(0,0,0,0)),url('https://ideadrop.s3.eu-west-2.amazonaws.com/wp-content/uploads/2019/05/16133936/rsz_maarten-van-den-heuvel-73124-unsplash.jpg') 100% 100%/cover" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+<!--{background:https://ideadrop.s3.eu-west-2.amazonaws.com/wp-content/uploads/2019/05/16133936/rsz_maarten-van-den-heuvel-73124-unsplash.jpg}-->
+<!--{gradient:180deg, rgba(0,0,0,0), black 50%, rgba(0,0,0,0)}-->
+
+
+# Hierarchical Data
+Structure
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="white"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Overview
+
+* Data (Flat vs Hierarchy)
+* Hierarchical Data 
+* Visualizing Hierarchical
+* Examples/Code
+* Discussion/Summary
+
+---
+
+
+<!--{color:white}-->
+<div style='display:table-cell; width:30%; vertical-align: middle;'>
+
+<span style='font-size:120%'>
+"The greatest value of a picture (visualization) is when it forces us to notice what we never expected to see
+</span>
+
+John Tukey, 1977
+</div>
+<div style='display:table-cell; width:45%; '>
+<img width='70%' src='https://texasleansixsigma.com/wp-content/uploads/2020/08/1791740707-john-tukey-49598.jpg'>
+</div>
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+
+## What do we mean by 'Hierarchal' Data?
+(Give an example of hierarchical data)
+
+
+---
+
+
+## What do we mean by 'Hierarchal' Data?
+(Give an example of hierarchical data)
+
+**Data hierarchy** is a basic concept that helps to group and show **relationships** between components
+
+> Examples: files and folders to biological data groups
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="white"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+<!--{color:white}-->
+
+## What do hierarchical **visualizations** look like?
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="url('https://miro.medium.com/max/1400/1*QCVF5No6qbvQJGYguVWR5A.png')  50% 50%/contain no-repeat" 
+		 data-background-color="white"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+<!--{color:white}-->
+<!--{background:https://miro.medium.com/max/1400/1*QCVF5No6qbvQJGYguVWR5A.png, 50% 50%/contain no-repeat}-->
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Why do we **need** hierarchical representations in data visualization?
+
+---
+
+### Why do we **need** hierarchical representations in data visualization?
+
+* Large data 
+  * Hundreds-thousands/millions items
+* Visual exploration limits
+  * Excessive number of **graphical items on screen**
+  * Prohibitive processing **power requirements** for interactive visualization
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="white"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+<!--{color:white}-->
+
+## From
+
+<img src='https://layout.xbdev.net/var/images/imgG8gxyO1fsjAZ.jpg'>
+
+---
+
+## To
+
+<img src='https://layout.xbdev.net/var/images/imgeKQ8rBhp9iVA.jpg'>
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+
+## Summary
+
+* Hierarchies **important** and valuable
+  * Manage large/complex data (grouping/linking)
+* Visualizations
+  * Number of items on screen
+  * Interactive factors
+  * Computational limits
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</textarea>
+</section>
+        
+      </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/highlight.min.js"></script>
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/math/math.min.js"></script>
+<!--
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/math/katex.min.js"></script>
+-->
+
+    <script>
+    window.addEventListener('load', function() {
+      console.log('setting up reveal');
+	  //window.history.pushState(null, null, '?print-pdf');
+
+      Reveal.initialize( { width: 1240,
+  						   height: 720,
+						   controls: true,
+						   progress: true,
+						   center: true,
+						   hash: true,
+                           transition: 'fade', // none/fade/slide/convex/concave/zoom
+						   controlsTutorial: true,
+                           plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX  ]
+                         } );
+    });
+    </script>
+</body>
+</html>
+	
