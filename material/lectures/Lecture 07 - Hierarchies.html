@@ -62,10 +62,12 @@
 
 <!-- ------------------------------------------------------------- -->
 
+<!--
 <section data-background-video="./images/intro6.mp4">
 <aside class='notes'>
 </aside>
 </section>
+-->
 
 <!-- ------------------------------------------------------------- -->
 
@@ -74,10 +76,12 @@
 	<textarea data-template>
 		## Overview
 		
-* Hierarchical data
+* **Hierarchical** data
 * Hierarchical layouts
   * Tree layouts
   * Pack layouts
+* Implementation **Examples**
+* Discussion/Summary
 
 <aside class='notes'>
 </aside>
@@ -92,27 +96,44 @@
 		## 	Hierarchical Clustering
 * Hierarchical clustering is an algorithm that groups similar objects into groups called clusters
 * Unsupervised clustering
+
+<div>
+
+<div style='float:left; width:50%;'>
+
 * Two types:
-  * Agglomerative 
-  * Divisive
+  * **Agglomerative**
+  * **Divisive**
   
+</div>
+<div style='float:right; width:50%;'>
+<img style='border:0;' src='https://miro.medium.com/max/1039/0*afzanWwrDq9vd2g-'>
+</div>
+
+</div>
+  
+<small>
+
 --- 
 
 * Agglomerative Clustering: Also known as bottom-up approach
-* Divisive Clustering: Also known as top-down approach
-
+* Divisive Clustering: Also known as top-down approach <br>
 Link Details on [d3-hierarchy](https://github.com/d3/d3-hierarchy)
+
+</small>
 
 <aside class='notes'>
 </aside>
 	</textarea>
 </section>
 
+
+
 <!-- ------------------------------------------------------------- -->
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	### Example Hierarchical data in JSON object
+	### Example Hierarchical **data** in JSON object
 
 	```json
 	{
@@ -174,11 +195,13 @@ Link Details on [d3-hierarchy](https://github.com/d3/d3-hierarchy)
 	<textarea data-template>
 	### `d3.hierarchy`
 
-	* `d3.hierarchy` provides a resource for loading and managing hierarchical data 
+	* `d3.hierarchy` provides a resource for loading and **managing hierarchical data** 
 	
-	* accessor methods, such as, root, children, descendants navigating hierarchy
+	* **accessor methods**, such as, root, children, descendants navigating hierarchy
 	
 	  * e.g., `root.children[0].data.name`
+	  
+	Details [link](https://github.com/d3/d3-hierarchy)
 <aside class='notes'>
 </aside>
 	</textarea>
@@ -192,8 +215,7 @@ Link Details on [d3-hierarchy](https://github.com/d3/d3-hierarchy)
 	<textarea data-template>
 	#### Example d3.hierarchy()
 	
-<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'>
-<div id="content"></div>
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'><div id="content"></div>
 <script src="https://d3js.org/d3.v7.min.js"></script>  
 <script>
 var data = { // input hierarchy data 
@@ -250,7 +272,7 @@ Try out the above example and go through the code.
 	<textarea data-template>
 	### Visualizing 'd3.hierarchy' Data
 	
-	* Recurse data then add/remove DOM elements 
+	* **Recurse** data then add/remove DOM elements 
 	* 'Visualize' hierarchy 
 
 <aside class='notes'>
@@ -305,7 +327,7 @@ console.log('done..');
 <img src='./images/lecture07/divhierarchy.png' style='border:0;position:absolute;right:0px;top:0px;'>
 
 Run the above example and go through the code.
-Try adding color to show depth.
+Try adding color (or patterns) to show depth (add animation/hover over information/mouse).
 <aside class='notes'>
 </aside>
 	</textarea>
@@ -340,8 +362,7 @@ Try adding color to show depth.
 	#### Hierarchical **Data**
 	
 Given the following data, lets look at some ways of visualizing the relationships (hierarchy).
-<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'>
-var data = {
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'>var data = {
   "name": "A1",
   "children": [
     {
@@ -366,10 +387,15 @@ var data = {
       "value": 200
     }
   ]
-}
+};
 </script>
 </code></pre>
-Different ways of visualizing the same data (same data is used in the following examples). 
+
+<small>
+
+**Different ways** of visualizing the same data (same data is **used in the following examples**). 
+
+</small>
 
 <aside class='notes'>
 </aside>
@@ -383,7 +409,7 @@ Different ways of visualizing the same data (same data is used in the following 
 	<textarea data-template>
 	#### Example 'nodes and links' (treeLayout)
 	
-<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<pre><code class="stretch" style='line-height:1.0;font-size:65%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/d3-selection@3"></script>
 
 <style>
@@ -426,6 +452,7 @@ d3.select('svg g.links')
   .attr('y2', function(d) {return d.target.y;});
 </script>
 </code></pre>
+<small>Try extending and enhancing the example - what would you change/add?</small>
 
 <img src='./images/lecture07/linkshierarchy.png' width='30%' style='border:0;position:absolute;right:-50px;top:0px;'>
 
