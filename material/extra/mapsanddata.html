@@ -1,0 +1,459 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <script>
+	window.history.replaceState = function(){ };
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/serif.min.css" id="theme">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/white.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/zenburn.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/monokai.min.css">
+  
+<!--
+  <link rel="stylesheet" href="https://layout.xbdev.net/var/images/pdf.css">
+-->
+  <style>
+  b, strong {
+     color: red;
+  }
+  h1,h2,h3,h4,h5 {
+     color:unset!important;
+  }
+  .hljs {
+     font-size:105%;
+  }
+  </style>
+
+</head>
+<body>
+    <div class="reveal">
+      <div style='position:absolute;left:10px;top:10px;font-size:8pt;color:transparent;'>https://layout.xbdev.net</div>
+      <div class="slides" style='border:0;'>
+		<!--
+        <section data-background-color="rgb(70, 70, 255)"><h2>Welcome</h2></section>
+		<section style="height:720px; background-color:rgb(70, 70, 255);"><h2>How are you?</h2></section>
+		-->
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="linear-gradient(180deg, rgba(0,0,0,0) 0%, black, rgba(0,0,0,0) 100%),url('https://www.frontiersin.org/image/researchtopic/8127')  50% 50%/contain no-repeat" 
+		 data-background-color="white"
+         data-background-size="cover"
+		 style="color:white"
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+<!--
+Visualization 'Map' data (i.e., geographical information)
+-->
+
+<!--{color:white}-->
+<!--{background:https://www.frontiersin.org/image/researchtopic/8127, 50% 50%/contain no-repeat}-->
+
+<!--{gradient:180deg, rgba(0,0,0,0) 0%, black, rgba(0,0,0,0) 100%}-->
+
+# **Geographical Data** 
+## Tutorial **Notes**
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Overview 
+
+* Geographic **Data**
+* Formats/Maps
+* **Examples**
+* Summary/Discussion
+
+</div>
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Data
+
+Data comes in many formats and represents many things
+
+* Text, binary, images, videos, **map coordinates**, city names, ...
+
+> D3 is not a magic tool that draws and styles charts and maps for you.  It proves a means for **YOU** to style the chart using **web-standards**
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="white"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+<!--{color:white}-->
+
+## Geographics Data
+
+<img src='https://layout.xbdev.net/var/images/imgBYrX9Hmtzhck.jpg'>
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Question
+
+**What** sort of **data** do you need to represent **'geographic'** information?
+
+What graphical **visualization** will you use? (only maps?)
+
+---
+
+**What** sort of **data** do you need to represent **'geographic'** information?
+
+What graphical **visualization** will you use? (only maps?)
+
+
+* Land regions (path data/sizes)
+* Points (e.g., long/lat)
+* Maps/colors (height/population density)
+* Flat or 'projected' (e.g., 3d/wrapped)
+* ...
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## How is map/geographical data stored?
+
+---
+
+## How is map/geographical data stored?
+
+Few examples:
+
+* **Shapefile** format is popular for geospacial vector data format for geographical information systems (GIS) software
+* **GeoJSON** is a format for encoding a variety of geographical structures
+  * e.g., Geometry Collection, Feature Collection
+* **TopoJSON** is an extension of GeoJSON that encodes **topology**
+* Many other formats (e.g., Lidar, ..)
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## TopoJSON
+
+* Rather than representing geometries discretely, **geometries in TopoJSON files are stitched together** from **shared line segments** called **arcs**
+* Eliminates redundancy, offering more compact representations of geometry than GeoJSON
+* 80% smaller than their GeoJSON equivalents
+
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Visualizing Map (World) 'Data'
+
+Map (or project) the data into the 'screen' format
+
+
+<img src='https://layout.xbdev.net/var/images/img1wYe4Qpq6UNz.jpg'>
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Simple Example
+
+1. Load in d3 library
+2. Load in topjson helper for loading in/setting up map data
+3. Draw the svg paths using the load map data (path generator)
+4. Example 'plot' some data points (e.g., world locations)
+
+Important lines:
+```js
+// type of projection we want to use
+const projection = d3.geoEquirectangular()
+// path generator used for drawing
+const path = d3.geoPath().projection(projection)
+```
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Example (World Map and Locations)
+
+
+<code style='font-size:60%;line-height:1;min-height:650px;'><pre><script src='https://d3js.org/d3.v7.min.js'></script>
+<script src="https://d3js.org/topojson.v3.js"></script>
+<script>
+const places = [{
+    name: "Wollongong, Australia",
+    location: {latitude: -34.42507,longitude: 150.89315   }  },
+    { name: "Newcastle, Australia",
+    location: {latitude: 55.9096602,longitude: -3.3203494 }
+} ];
+
+const width  = 960;  const height = 480;
+
+const projection = d3.geoEquirectangular().scale(100)
+ // .translate([width / 2, height / 2])
+ .precision(.1);
+
+const path = d3.geoPath().projection(projection)
+
+const color = d3.scaleQuantize([1, 10], d3.schemeBlues[9]);
+
+const svg = d3.select("body").append("svg").attr("width", width).attr("height", height);
+
+d3.json("https://raw.githubusercontent.com/n1n9-jp/CSIS_map_140514/master/data/world-50m.json").then((world) => {
+
+  svg.insert("path", ".graticule") // draw land (blue)
+      .datum(topojson.feature(world, world.objects.land))
+      .attr("class", "land")
+      .attr("fill", () => color(Math.random() * 10))
+      .attr("d", path);
+
+  svg.selectAll("circle") // draw location points (long/lat)
+      .data(places)
+      .enter()
+      .append("circle")
+      .style('stroke', 'blue')
+      .style('fill', 'orange')
+      .attr("r", 5 )
+      .attr("transform", function(d) { 
+            let val = projection( [ d.location.longitude, d.location.latitude] );
+            console.log( val );
+            let r = `translate( ${val} )`;
+            return r; });
+});
+</script>
+</pre></code>
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+## Things to Try
+
+Ideas to add/develop/extend/add:
+1. Add **hover over** info for the points
+2. Draw a line from the **start to the end** (two points)
+3. Hover over the line it shows popup giving extra information (e.g., distance)
+4. Let the mouse 'click' and **add new locations**
+5. Add more **colors**
+6. Enable zooming/dragging
+7. Mix in other graphics (e.g., maps/**flags**)
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#f9dc24"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+
+## Summary
+
+* Easy to get started with D3 and **map/geospatial data**
+* Lots of **resources** (and examples, see d3 gallery)
+* More than just 'putting' charts on screen
+  * **Message and what you want to present**
+
+</textarea>
+</section>
+        
+<section data-markdown 
+         data-transition="fade" 
+		 data-background-image=''
+         data-background="" 
+		 data-background-color="#3553bc"
+         data-background-size="cover"
+		 style=""
+         data-background-transition="slide">
+<textarea data-template>
+     
+	
+
+
+## Reading/Resources/Articles
+
+* SVG Path Elements/Documentation [*](h9ps://developer.mozilla.org/en-­‐US/docs/Web/SVG/Element/path)
+* D3 Projections/Methods/Wiki [*](https://github.com/d3/d3/wiki)
+
+
+* Maps & Geospatial Data Slides [*](https://f21dv.github.io/material/lectures/Lecture%2009%20-%20Maps%20and%20Geospatial%20Data.html#/)
+* Learning D3JS Mapping by Thomas Newton
+* D3JS in Action by Elijah Meeks
+* Mapping with D3, A Friendly Introduction by Andy Woodruff [*](http://maptimeboston.github.io/d3-maptime/)
+* Let's Make a Map by Mike Bostock [*](http://bost.ocks.org/mike/map/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</textarea>
+</section>
+        
+      </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/highlight.min.js"></script>
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/math/math.min.js"></script>
+<!--
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/math/katex.min.js"></script>
+-->
+
+    <script>
+    window.addEventListener('load', function() {
+      console.log('setting up reveal');
+	  //window.history.pushState(null, null, '?print-pdf');
+
+      Reveal.initialize( { width: 1240,
+  						   height: 720,
+						   controls: true,
+						   progress: true,
+						   center: true,
+						   hash: true,
+                           transition: 'fade', // none/fade/slide/convex/concave/zoom
+						   controlsTutorial: true,
+                           plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX  ]
+                         } );
+    });
+    </script>
+</body>
+</html>
+	
