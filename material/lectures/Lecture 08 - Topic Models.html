@@ -60,21 +60,21 @@
 </section>
 
 <!-- ------------------------------------------------------------- -->
-
+<!--
 <section data-background-video="./images/intro2.mp4">
 <aside class='notes'>
 </aside>
 </section>
-
+-->
 <!-- ------------------------------------------------------------- -->
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
 		## Overview
 
-		* What is Topic Modelling?
+		* **What** is Topic Modelling?
 		* Topic Model Methods 
-		* Visualization Topic Model Data 
+		* **Visualizing** Topic Model Data 
 		* Examples & Discussion
 		
 <aside class='notes'>
@@ -91,8 +91,9 @@
 	<textarea data-template>
 		## What is Topic Modelling?
 
-		In machine learning and natural language processing, a topic model is a type of statistical model for discovering the abstract "topics" that occur in a collection of documents.
+		In machine learning and natural language processing, a **topic model** is a type of **statistical** model for discovering the **abstract "topics"** that occur in a collection of documents (corpus) [*](https://en.wikipedia.org/wiki/Topic_model).
 		
+		>  Part of text analysis methods that analyzes a "bags" or groups of words 
 <aside class='notes'>
 </aside>
 	</textarea>
@@ -105,7 +106,7 @@
 	<textarea data-template>
 		### Visual Overview **Topic Modelling**
 
-		Raw data (text) is used to generate topic groups
+		Raw data (**text**) is used **to** generate **topic** groups
 		
 		<br>
 		<img src='./images/lecture08/topicmodelingidea.png' width='80%' style='border:0;display:block; margin-left:auto;margin-right:auto;'>
@@ -137,8 +138,8 @@
 	<textarea data-template>
 		### Uncomplicated Approach (Word Occurrences)
 
-		* Basic example may include a word count algorithm (tracks occurrence of words or similar words)
-		* Limited and can only show basic information (i.e., does not show accurate representation of the topic discussed in the text)
+		* **Basic example** may include a **word count** algorithm (tracks occurrence of words or similar words)
+		* **Limited** and can only show basic information (i.e., does not show accurate representation of the topic discussed in the text)
 		
 		
 <aside class='notes'>
@@ -175,10 +176,19 @@ var myWords = [{word: "Running", size: "10"},
 			   
 <!-- ------------------------------------------------------------- -->
 
-<section style="text-align: left; vertical-align:top; " data-background-iframe='./d3-examples/wordcloud.html' data-background-interactive>
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
 
-<h3> Word Cloud</h3>
+<iframe style='width:800px;height:800px;position:absolute;left:20px;top:120px;' src='./d3-examples/wordcloud.html'></iframe>
 
+<div style='width:800px;height:800px;'>
+
+<h3>Word Cloud<a href='https://github.com/f21dv/f21dv.github.io/blob/main/material/lectures/d3-examples/wordcloud.html'>*</a></h3>
+</div>
+
+<aside class='notes'>
+</aside>
+	</textarea>
 </section>
 
 <!-- ------------------------------------------------------------- -->
@@ -204,13 +214,15 @@ var myWords = [{word: "Running", size: "10"},
 		
 		* LDA is a popular topic modelling algorithm
 		* Note there are a range of algorithms on the subject but we **focus on LDA**
-		* Further reading, see other algorithms, such as:
+		* Further **reading**, see other algorithms, such as:
 		  * Explicit semantic analysis
 		  * Latent semantic analysis
 		  * Hierarchical Dirichlet process
 		  * Non-negative matrix factorization
 		  * Statistical classification
 		  * Unsupervised learning, ...
+		  
+<small> Link Survey Article: [Latent Dirichlet allocation (LDA) and topic modeling: models, applications, a survey](https://link.springer.com/article/10.1007/s11042-018-6894-4) </small>
 		
 <aside class='notes'>
 </aside>
@@ -245,18 +257,12 @@ var myWords = [{word: "Running", size: "10"},
 	<textarea data-template>
 		### Let's take a look at a some examples ...
 		
-		* Raw Twitter data (random posts)
-		* Books/articles 
-		* Papers reports (e.g., REF2014 data)
+		* Raw Twitter data (random posts) [*](https://github.com/f21dv/f21dv.github.io/blob/main/material/lectures/d3-examples/topic.html)
+		* Books/articles [*](https://awaisathar.github.io/lda.js/)
+		* Papers reports (e.g., REF2014 data) [*](https://f21dv.github.io/material/extra/Applied%20Examples.html)
 <aside class='notes'>
 </aside>
 	</textarea>
-</section>
-
-<!-- ------------------------------------------------------------- -->
-
-<section data-background-iframe='./d3-examples/topic.html' data-background-interactive>
-
 </section>
 
 <!-- ------------------------------------------------------------- -->
@@ -273,9 +279,25 @@ var myWords = [{word: "Running", size: "10"},
 	## LDA (Careful)
 
 	* **Disadvantages** are that it is hard to know when LDA is working 
-	* Topics are soft-clusters so there is no objective metric to say *this is the best choice* of hyperparameters
+	* Topics are soft-clusters so there is **no objective metric** to say **this is the best choice** of hyperparameters
 	* Metrics like perplexity (how well the model explains the data) are okay to test if the learning is working, but very poor indicators of the overall quality of the model
 	* For example, you could have a model with very low perplexity, but whose topics are not very informative
+	
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	## Exercises
+
+	* Task this week (try example implementation of LDA) [*](https://f21dv.github.io/material/tasks/Task%2008%20-%20Topic%20Models.html)
+	* Search around for some text/document examples and extract 'topic groups'
+	* Develop and explore how you would 'visualise' these groups (beyond **word clouds and bubbles**)
+	* Extend the implementation so the user can **experiment** with options/variables (learning resource)
 	
 <aside class='notes'>
 </aside>
@@ -291,8 +313,8 @@ var myWords = [{word: "Running", size: "10"},
 	## Summary
 
 	* Data is not always in the form that you want 
-	* Extracting data/information from the *raw* data
-	* Data analytics (models/equations to extract information)
+	* Extracting data/information from the **raw** data (e.g., text corpus)
+	* Data **analytics** (models/equations to extract information)
 	
 <aside class='notes'>
 </aside>
@@ -326,6 +348,8 @@ var myWords = [{word: "Running", size: "10"},
 	  * https://wellecks.wordpress.com/tag/topic-modeling/
 	* JS Text LDA
 	  * https://awaisathar.github.io/lda.js/ 
+	* Example LDA Implementation (Learning)
+	  * https://f21dv.github.io/material/tasks/Task%2008%20-%20Topic%20Models.html
 	  
 <aside class='notes'>
 </aside>
