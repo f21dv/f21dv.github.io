@@ -31,7 +31,7 @@
 <body>
     <div class="reveal">
       <div style='position:absolute;left:10px;top:10px;font-size:8pt;color:transparent;'>https://layout.xbdev.net</div>
-      <div class="slides" style='border:0;'>
+      <div class="slides" style='border:3px solid orange;'>
 		<!--
         <section data-background-color="rgb(70, 70, 255)"><h2>Welcome</h2></section>
 		<section style="height:720px; background-color:rgb(70, 70, 255);"><h2>How are you?</h2></section>
@@ -52,6 +52,7 @@
 Visualization 'Map' data (i.e., geographical information)
 -->
 
+<!--{border:3px solid orange}-->
 <!--{color:white}-->
 <!--{background:https://www.frontiersin.org/image/researchtopic/8127, 50% 50%/contain no-repeat}-->
 
@@ -177,11 +178,11 @@ What graphical **visualization** will you use? (only maps?)
      
 	
 
-## How is map/geographical data stored?
+## How is map/geographical data **stored**?
 
 ---
 
-## How is map/geographical data stored?
+## How is map/geographical data **stored**?
 
 Few examples:
 
@@ -280,10 +281,10 @@ const path = d3.geoPath().projection(projection)
      
 	
 
-## Example (World Map and Locations)
+### Example (World Map and Locations)
 
 
-<code style='font-size:60%;line-height:1;min-height:650px;'><pre><script src='https://d3js.org/d3.v7.min.js'></script>
+<pre><code style='font-size:60%;line-height:1;min-height:620px;'><script src='https://d3js.org/d3.v7.min.js'></script>
 <script src="https://d3js.org/topojson.v3.js"></script>
 <script>
 const places = [{
@@ -326,8 +327,7 @@ d3.json("https://raw.githubusercontent.com/n1n9-jp/CSIS_map_140514/master/data/w
             let r = `translate( ${val} )`;
             return r; });
 });
-</script>
-</pre></code>
+</script></code></pre>
 
 </textarea>
 </section>
