@@ -60,10 +60,12 @@
 </section>
 <!-- ------------------------------------------------------------- -->
 
+<!--
 <section data-background-video="./images/intro4.mp4">
 <aside class='notes'>
 </aside>
 </section>
+-->
 
 <!-- ------------------------------------------------------------- -->
 
@@ -71,8 +73,8 @@
 	<textarea data-template>
 		## Overview
 
-		* Maps in D3 
-		* Map Data (e.g., GeoJSON)
+		* **Maps** in D3 
+		* Map Data (e.g., TopoJSON and GeoJSON)
 		* Discussion/Examples
 		
 <aside class='notes'>
@@ -86,11 +88,11 @@
 	<textarea data-template>
 	### Maps in D3
 
-* Uses TopoJSON library
-  * extension of GeoJSON
-  * shapes stitched together from shared line segments called arcs.
+* **TopoJSON** library
+  * extension of **GeoJSON**
+  * shapes stitched together from shared line segments called arcs
   * uses differences between x,y points
-  * typical TopoJSON files are 80% smaller than their GeoJSON equivalents.
+  * typical TopoJSON files are **80% smaller** than their GeoJSON equivalents
 * URLs
   * d3js.org/topojson.v1.min.js
   * github.com/mbostock/topojson/wiki
@@ -129,9 +131,9 @@
 	<textarea data-template>
 	### World Coordinates 
 
-* Latitude and Longitude are the units that represent the coordinates at geographic coordinate system
+* **Latitude and Longitude** are the units that represent the coordinates at geographic coordinate system
 * Latitude and Longitude of Heriot-Watt (55.910326, -3.322813)
-  Online Lat/Long viewer [Link](https://www.latlong.net/)
+  Online Lat/Long viewers ([1](https://www.findlatitudeandlongitude.com/),[2](https://www.latlong.net/))
 * Mobile phones/tablet browsers have access to 'GPS' through 'Geolocation API'
   * e.g., `navigator.geolocation`
   ```js
@@ -179,18 +181,53 @@ function showPosition(position) {
 	</textarea>
 </section>
 
+<!-- ------------------------------------------------------------- -->
+
+<section data-markdown style="text-align: left;">
+	<textarea data-template>
+	
+<div style='float:left; width:60%; font-size:70%; '>
+	
+	### **Try** this Week
+	
+	* Write a small **webpage** (e.g., upload it onto GitHub)
+	* Run the webpage on your phone and grab the **GPS long/lat** location
+	* Repeatedly store GPS location at timed intervals
+	* As you **walk around** with your phone draw the 'path' data 
+	  * **Develop a visualization** that shows your 'movement'
+	  * See later, use other map/visualizations other than TopoJSON/GeoJSON
+	  
+</div>
+<div style='float:right; width:40%;'>
+
+<img style='border:0px; box-shadow:none;' src='https://media.istockphoto.com/id/493553150/photo/mobile-gps-navigation-travel-destination-location-and-positioning-concept.jpg?b=1&s=170667a&w=0&k=20&c=bgXJfZmH5B72a3ki2z0nkrir93DIPAonwwOrlkTDiiQ='>
+
+</div>
+
+<small>
+
+> Gameify the activity - have access to a live server share/show multiple peoples locations and give 'challenges' (find artifacts, timing, leaderboards)
+
+</small>
+
+
+<aside class='notes'>
+</aside>
+	</textarea>
+</section>
+
 
 <!-- ------------------------------------------------------------- -->
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	### Examples
+	### **Resource** Examples
 
 * Try out some online examples to give you an idea of the data (use with the d3 geo libraries) 
 * Basic lat/long position 
 * JSON format used to store additional details (paths, regions, ...)
 
-1. Lat/Long Example [https://www.latlong.net/](https://www.latlong.net/)
+1. Lat/Long Viewer [https://www.latlong.net/](https://www.latlong.net/)
 
 2. Geo/Data [https://geojson.io](https://geojson.io)
 
@@ -209,7 +246,7 @@ function showPosition(position) {
 	<textarea data-template>
 	### D3 & Maps
 
-To work with maps in D3, you need to know about three ideas:
+To work with maps in D3, you need to know about **three ideas**:
 
 * **GeoJSON** - is a standard for representing geographical data in JSON
 * **Projections** - is a function that takes the latitude and longitude coordinates and converts them into x-y coordinates that D3 can use to draw shapes
@@ -230,7 +267,7 @@ To work with maps in D3, you need to know about three ideas:
 	<textarea data-template>
 	### `d3.geoPath(..)` and `d3.geoMercator()`
 
-* `d3.geoPath(..)` given a **GeoJSON** geometry or feature object, it generates an SVG path data for rendering
+* `d3.geoPath(..)` given a **GeoJSON** geometry or feature object, it **generates an SVG path** data for rendering
 * `d3.geoMercator()` is used to draw The spherical Mercator **projection**
 
 
@@ -248,12 +285,11 @@ To work with maps in D3, you need to know about three ideas:
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
 	### Drawing GeoMap Data 
-	
+
 	* In this example below, add some data you create on `geojson.io' (e.g., draw a region) 
 	* Run the code and see the result on screen (visualize the output)
 	
-<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'>
-<script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
+<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'><script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
 
 <svg width="620px" height="600px">
       <g class="map"></g>
@@ -271,13 +307,14 @@ function update(geojson) {
 
 // DRAW SOME DATA
 let json = ....
-// add data from https://geojson.io/
+// example, add data from https://geojson.io/
 
 update(json);
 
 console.log('ready..');
 </script>
 </code></pre>
+
 
 Try out the example, as it forms the foundation for later exercises which build on the json/geo data format.
 
@@ -297,7 +334,7 @@ Try out the example, as it forms the foundation for later exercises which build 
 	<textarea data-template>
 	### Map of World (Animated/Globe)
 
-<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<pre><code class="stretch" style='line-height:1.0;font-size:60%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
 
 <div id="content">
     <canvas width="800" height="400"></canvas>
@@ -356,13 +393,15 @@ Try out the above example and go through the code.
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	### Run the previous code example and try to add the following details
+	### Run the previous code example and try to **add the following features**
 	
-	* Modify the yaw, pitch and roll
+	* **Modify** the yaw, pitch and roll
 	* Move and scale the Earth (size and location/middle of screen)
 	  * Note `translate(..)`
-	* Change the speed the Earth rotates 
-	* Add user input *cursor* drag/rotate Earth 
+	* Change the **speed** the Earth **rotates**
+	* Add user input **cursor** drag/rotate Earth 
+	* Add 'markers' other visuals to the map (e.g., key locations)
+	* Add a 'story' to the map (information transitions/changes...)
   
 <aside class='notes'>
 </aside>
@@ -377,7 +416,7 @@ Try out the above example and go through the code.
 	<textarea data-template>
 	### Regions/Country
 
-<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<pre><code class="stretch" style='line-height:1.0;font-size:55%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
 
 <style>
 #content .map path          { fill: #aaa;  stroke: #fff;  }
@@ -441,9 +480,9 @@ Try out the above example and go through the code.
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	### Map example that combines **Leaflet** (MAP) with D3
+	### Map example that combines **Leaflet** (MAP) with D3 [*](http://leafletjs.com/)
 
-<pre><code class="stretch" style='line-height:1.0;font-size:70%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<pre><code class="stretch" style='line-height:1.0;font-size:60%;width:120%;margin-left:-10%;'><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
 
 <script src = "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <link rel = "stylesheet" href = "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -492,15 +531,16 @@ Try out the above example and go through the code.
 
 <section data-markdown style="text-align: left;">
 	<textarea data-template>
-	### Extending Map Markers
+	### **Extending** Map Markers
 
 	* Try building up on the map example by adding more markers 
-	  * Try and add the marker for 'Heriot-Watt University'
+	  * Try and **add the marker** for 'Heriot-Watt University'
 	  * Add the marker for your house 
-	* Search for other data sets that lists locations and information
+	* Search for **other data sets** that lists locations and information
 	  * For example, show markers for petrol stations, electric charging points
 	  * Draw different markers with different colors 
-	  * Add additional 'help' text (hover over info)
+	  * Add additional 'help' text (**hover over info**)
+	* Try **styling** and customizing the visualization
 <aside class='notes'>
 </aside>
 	</textarea>
@@ -521,10 +561,11 @@ Try out the above example and go through the code.
 	<textarea data-template>
 	## Summary
 
-	* Map/Location Data
+	* **Map/Location** Data
 	* Projection (Latitude and Longitude to screen coordinates (x,y) )
 	* SVG shapes (lines, paths, ...)
 	* Data with real-world locations (maps/animated/interactive)
+	* **Visualizations** (SVG/Graphics)
 <aside class='notes'>
 </aside>
 	</textarea>
@@ -541,6 +582,7 @@ Try out the above example and go through the code.
 	* **Review** the revision questions 
 	* Work through tutorial practicals 
 	* Experiment (get into good habits) 
+	  * Don't just 'look' at the map examples!
 <aside class='notes'>
 </aside>
 	</textarea>
